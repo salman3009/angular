@@ -1,0 +1,199 @@
+Inside the interface export keyword is mandatory:
+Product.ts
+export interface Product{
+    product:string;
+    offer:string;
+    price:number;
+}
+=======================================
+importing an interface inside the component
+import {Product} from './Product';
+===========================================
+Declaring the array type with interface
+public list:Product[]=[];
+=====================================
+Pushing the value inside the array
+1.All keyword inside the array should match the interface type
+2.value should be ngModel value 
+3.example:
+   this.list.push({
+         product:this.product,
+         price:this.price,
+         offer:this.offer
+       })
+========================================================	   
+*ngFor Directive:
+syntax:
+  *ngFor="let obj of arrayName";
+example:
+let arrayDetails=[
+{
+product:"salman",
+price:2000,
+offer:"10"
+},
+{
+product:"saran",
+price:3000,
+offer:"20"
+
+}
+];
+<div *ngFor="let obj of arrayDetails">
+<div>{{obj.product}}</div>
+<div>{{obj.price}}</div>
+<div>{{obj.offer}}</div>
+</div>
+app.component.html:
+<div *ngFor="let obj of list">
+      <div>{{obj.product}}</div>
+      <div>{{obj.price}}</div>
+      <div>{{obj.offer}}</div>
+    </div> 
+	
+============================================================
+Table scss design:
+#customers 
+  font-family: Arial, Helvetica, sans-serif
+  border-collapse: collapse
+  width: 100%
+
+
+#customers td, #customers th 
+  border: 1px solid #ddd
+  padding: 8px
+
+
+#customers tr:nth-child(even)
+  background-color: #f2f2f2
+
+#customers tr:hover
+   background-color: #ddd
+
+#customers th 
+  padding-top: 12px
+  padding-bottom: 12px
+  text-align: left
+  background-color:#333333
+  color: white
+============================================================
+Showing table in html:
+  <table *ngIf="flag" id="customers">
+    <tr>
+      <th>Product</th>
+      <th>Price</th>
+      <th>Offer</th>
+    </tr>
+    <tr *ngFor="let obj of list">
+      <td>{{obj.product}} </td>
+      <td>{{obj.price}}</td>
+      <td>{{obj.offer}}</td>
+    </tr>
+  </table>
+============================================================  
+Adding index inside the ngFor:
+    <tr *ngFor="let obj of list;let i=index;">
+	{{i+1}}
+	</tr>
+====================================================
+Installing external package inside the angular:
+https://www.npmjs.com/package/fontawesome-4.7
+cmd:npm i fontawesome-4.7
+================================================
+Anything common style please add in style.sass:
+/* You can add global styles to this file, and also import other style files */
+.button 
+  background-color: #333333
+  background-color:
+  border: none
+  color: white
+  padding: 15px 32px
+  text-align: center
+  text-decoration: none
+  display: inline-block
+  font-size: 16px
+
+2.Inside the html:
+<button class="button">Delete</button>  
+==================================================
+Deleting the record from the list:
+app.component.ts:
+  onDeleteHandler(id:number){
+     this.list.splice(id,1);
+   }
+app.component.html:
+ <td><button  (click)="onDeleteHandler(i)" class="button">Delete</button></td>
+============================================== 
+Edit Mode inside the add button:
+1.first declare the boolean flag to control both mode:
+example:
+public editMode:boolean=false;
+2.write the condition inside the html:
+ <input *ngIf="editMode" (click)="onEditHandler()" type="submit" value="Edit"> 
+ <input  *ngIf="!editMode" (click)="onSubmitHandler()" type="submit" value="Submit">
+3.write the edit method
+  onEditHandler(){
+     
+   }
+     onEditMode(){
+     this.editMode=!this.editMode;
+   }
+4.inside the edit button add the onEditMode method:
+ <td><button (click)="onEditMode()" class="button">Edit</button></td>   
+5.To fetch the data depends upon the index value:
+ <td><button (click)="onEditMode(i)" class="button">Edit</button></td>
+6.declare index variable inside the ts file:
+public index:number=0;
+   onEditMode(i:number){
+     this.index=i;
+     this.product=this.list[i].product;
+     this.price=this.list[i].price;
+     this.offer=this.list[i].offer;
+     this.editMode=!this.editMode;
+   }
+7.Edit method
+   onEditHandler(){
+    let result =(this.validationCheck(this.product) && this.validationCheck(this.price) && this.validationCheck(this.offer));
+    if(result){
+      this.list[this.index].product=this.product;
+      this.list[this.index].price=this.price;
+      this.list[this.index].offer=this.offer;
+    }else{
+      alert("failure");
+    }
+   
+   }
+8.method to cleare the data
+   onResetHandler(){
+     this.product='';
+     this.price=0;
+     this.offer='';
+   }   
+=================================================   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

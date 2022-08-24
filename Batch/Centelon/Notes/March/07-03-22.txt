@@ -1,0 +1,38 @@
+HTML - Hyper Text Mark up Language
+IDE - Integrated Development Environment
+visual studio code:
+https://code.visualstudio.com/Download
+windows- system installer - 64 bit
+Visual studio code shortcut:
+To open a new file: Ctrl+N 
+To save a file:ctrl+s 
+filename you can use lowercamelcaseletter: dataInformation.html
+==================================================================
+<>
+built in keywords:
+html
+head
+body
+p
+
+Example:
+<html>
+
+
+
+</html>
+=====================================================================
+hello.html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+======================================================

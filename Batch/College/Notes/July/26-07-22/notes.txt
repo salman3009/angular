@@ -1,0 +1,26 @@
+Visual studio code:
+step1:
+https://code.visualstudio.com/download
+step2:
+System installer - 64bit
+Shortcut keys for VS Code:
+To create a new file : Ctrl+N
+To save a file:Ctrl+s 
+filename: helloworld.html 
+heading tag ,paragraph, list is called block element 
+anchor tag ,img is called inline element 
+===========================================
+table:
+tr --> row 
+th,td --->column 
+attributes:
+1.border 
+2.width 
+3.align 
+=================================================
+
+
+
+
+
+

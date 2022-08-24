@@ -1,0 +1,54 @@
+Adding extra input binding in custom component.
+1.First declare a variable in developer component.ts
+ public flag:boolean=true;
+2.Do the property binding in html in developer component.ts
+    <app-list [globalList]="list" [flag]="flag"></app-list>
+3.Declare the Input decorator in child component 
+list.component.ts
+  @Input('flag')flag:boolean=false;
+=============================================================  
+Writing the delete method:
+1.list.component.html:
+<a (click)="onDelete()" class="btn btn-primary">Delete</a>
+2.list.component.ts 
+  onDelete(){
+    alert("onDelete");
+  }
+==============================================================  
+Delete method api:
+1.go to service class and create the observable
+  deleteDevelopers(id:number){
+    return this.http.delete<{list:any}>(`http://localhost:3000/profile/${id}`);
+  }
+
+2.developer.component.ts 
+
+  ngOnInit(): void {
+     this.getDevelopers();
+  }
+
+  getDevelopers(){
+    this.global.getDevelopers().subscribe((result)=>{
+      console.log(result.list);
+      this.list=result.list;
+    })
+  }
+
+  deleteDeveloper(id:number){
+    this.global.deleteDevelopers(id).subscribe((result)=>{
+       this.getDevelopers();
+    },(error)=>{
+
+           console.log(error);
+    })
+  }  
+3.list.component.ts
+  @Output() deleteDetails = new EventEmitter();
+  onDelete(id:number){
+    alert(id);
+    this.deleteDetails.emit(id);
+  }
+===============================================================
+4.using ng-content method 
+//to see the data of the selector 
+==================================================================

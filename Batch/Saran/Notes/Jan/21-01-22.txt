@@ -1,0 +1,49 @@
+//Decorator:
+//extra information about the class
+Example code:
+const addFuelToRocket = (target: Function) => {
+    return class extends target {
+      fuel = 100
+    }
+  }
+  
+  @addFuelToRocket
+  class Rocket {}
+ 
+ const rocket = new Rocket()
+ console.log(rocket.fuel) // 100
+ ==========================================
+ CLI - COMMAND LINE INTERFACE
+ Application state - current value
+ Desing logic - html tags
+ application logic- writting logic to bring data to application state
+ business logic - api call
+ 
+ business logic---->application logic---->appication ---->design logic
+   service class     component class         component class    template
+=============================================================================   
+ SPA - SINGLE PAGE Application
+ //there will be one html page
+// only component will get replace
+=========================================================
+ Angular key - ng
+ ========================================
+ Modules -- collection of class or component
+ Data Binding - Binding from component to template or template to component 
+ Dependence injection - service class ----------- component 
+ Directives -- ngFor,ngIf,ngSwitch
+ =====================================
+ cmd:ng --version
+ cmd:npm i -g @angular/cli
+ cmd:npm i -g @angular/cli@11
+ ============================================
+ To create new project in angular:
+ cmd:ng new project-name
+ cmd:strict -- y
+ cmd:routing-y
+ cmd:sass
+ ==========================================
+ 
+ 
+ 
+ 

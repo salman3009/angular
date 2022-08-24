@@ -1,0 +1,18 @@
+1.Create one folder called shared
+2.Inside the shared create one file called shared.module.ts 
+import { NgModule } from '@angular/core';
+import {AppAlertDirective} from './app-alert.directive';
+
+@NgModule({
+  imports: [],
+  declarations: [AppAlertDirective],
+  exports: [AppAlertDirective]
+})
+export class DirectivesModule { }
+3.move your directive inside the folder 
+4.any of the module import the following statement:
+import {DirectivesModule} from './shared/shared.module';
+  imports: [
+    DirectivesModule
+  ],
+=========================================================  

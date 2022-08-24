@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./global.css"></link>
+</head>
+<body>
+<script>
+  const locations =["chennai","delhi","kanpur"];
+  locations.push("kochi");
+  console.log(locations);
+  locations.unshift("Mumbai");
+  console.log(locations);
+  locations.splice(2,0,"chandigarh","Noida");
+  console.log(locations);
+</script>
+
+</body>
+</html>
+
+=============================================================
+concat to merge the two array:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./global.css"></link>
+</head>
+<body>
+<script>
+  const locations =["chennai","delhi","kanpur"];
+  const street =["1st street","2nd street","3rd street"];
+  const final_result=locations.concat(street);
+  document.write(final_result);
+</script>
+
+</body>
+</html>
+======================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./global.css"></link>
+</head>
+<body>
+<script>
+ const digits=[44,23,12,45,13];
+ document.write('<div>'+digits+'<div>');
+ digits.sort();
+ document.write('<div>'+digits+'<div>');
+</script>
+
+</body>
+</html>
+
+=================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./global.css"></link>
+</head>
+<body>
+<script>
+ const digits=[44,23,12,45,13];
+ document.write('<div>'+digits+'<div>');
+ digits.reverse();
+ document.write('<div>'+digits+'<div>');
+</script>
+
+</body>
+</html>
+=====================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./global.css"></link>
+</head>
+<body>
+<script>
+ const digits=[44,23,12,45,13];
+ document.write(digits.indexOf(45));
+</script>
+
+</body>
+</html>
+============================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./global.css"></link>
+</head>
+<body>
+<script>
+ const digits=[44,23,12,45,13,"salman"];
+ document.write(digits.includes("salman"));
+</script>
+
+</body>
+</html>
+
+==================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./global.css"></link>
+</head>
+<body>
+<script>
+const digits=[];
+const sub_result = Array.isArray(digits) && digits.push('salman');
+ console.log(sub_result);
+ console.log(digits);
+</script>
+
+</body>
+</html>
+==========================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./global.css"></link>
+</head>
+<body>
+<script>
+const digits=[45,34,22];
+console.log(digits);
+const sub_result = digits.toString();
+console.log(sub_result);  
+</script>
+
+</body>
+</html>
+==============================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./global.css"></link>
+</head>
+<body>
+<script>
+const digits=[45,34,22];
+console.log(digits);
+const sub_result = digits.join('-');
+console.log(sub_result);  
+</script>
+
+</body>
+</html>
+======================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./global.css"></link>
+</head>
+<body>
+<!-- <script>
+const digits=[45,34,22];
+digits.splice(1,0,11,22);
+console.log(digits);
+digits.splice(2,1);
+console.log(digits);
+</script> -->
+<script>
+  // const sum_digits=[45,34,22];
+  // const sub_result = sum_digits.slice(1);
+  // console.log(sum_digits);
+  // console.log(sub_result);
+
+  const sum_digits=[45,34,22,11,45];
+  const sub_result_second = sum_digits.slice(1,3);
+  console.log(sum_digits);
+  console.log(sub_result_second);
+  </script>
+
+</body>
+</html>
+========================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./global.css"></link>
+</head>
+<body>
+<script>
+  for(let i=0;i<10;i++){
+    console.log(i);
+  }
+</script>
+
+</body>
+</html>
+==================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./global.css"></link>
+</head>
+<body>
+<script>
+  // for(let i=0;i<10;i++){
+  //   console.log(i);
+  // }
+  for(let i=10;i>=0;i--){
+    console.log(i);
+  }
+</script>
+
+</body>
+</html>
+================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./global.css"></link>
+</head>
+<body>
+<script>
+  const items=["mobile","laptop","phone","car","bike"];
+  for(let i=0;i<items.length;i++){
+    console.log(items[i]);
+  }
+</script>
+
+</body>
+</html>
+=============================================================
+<script>
+  const items=[33,44,22,44,33];
+  let sum = 0;
+  for(let item of items){
+    console.log(item);
+  }
+</script>
+============================================================
+
+<script>
+let i=0;
+while(i<10){
+  console.log(i);
+  i++;
+}
+</script>
+=======================================================
+call back function:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./global.css"></link>
+</head>
+<body>
+<script>
+function addition(a,b,result){
+  let value = a + b;
+  console.log("addition");
+  result(value);
+}
+
+function result(value){
+  console.log("result"+value);
+}
+
+addition(20,30,result)
+</script>
+
+</body>
+</html>
+==============================================================
+<script>
+const names =["rajesh","karthick","amol"];
+names.forEach(function(input){
+    console.log(input);
+})
+
+</script>
+============================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./global.css"></link>
+</head>
+<body>
+ <script>
+   let names = "salman";
+   console.log(names.length);
+   let sentence = "hello welcome to javascript programming";
+   let result = sentence.replace("javascript","python");
+   console.log(result);
+   console.log(sentence);
+ </script>
+
+</body>
+</html>
+==================================================
+ <script>
+   let names = "salman";
+   console.log(names.length);
+   let sentence = "hello welcome to javascript programming Javascript";
+   let result = sentence.replace(/javascript/gi,"python");
+   console.log(result);
+ </script>
+============================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./global.css"></link>
+</head>
+<body>
+ <script>
+   let names = "salman";
+   let result = names.toUpperCase();
+   console.log(result);
+   result = result.toLowerCase();
+   console.log(result);
+ </script>
+
+</body>
+</html>
+======================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./global.css"></link>
+</head>
+<body>
+ <script>
+   let sub = "contact";
+   let header = "details";
+   let result = sub.concat(header);
+   console.log(result);
+ </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./global.css"></link>
+</head>
+<body>
+ <script>
+ let details = "     hello";
+ details = details.trim();
+ console.log(details.length);
+
+ </script>
+
+</body>
+</html>
+
+==============================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./global.css"></link>
+</head>
+<body>
+ <script>
+ let details = "hello";
+ console.log(details.charAt(2));
+ console.log(details[1]);
+
+ </script>
+
+</body>
+</html>
+===============================================================
+ <script>
+ let details = "hello";
+ console.log(details.charAt(2));
+ console.log(details.indexOf('o'));
+
+ </script>
+===================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./global.css"></link>
+</head>
+<body>
+ <script>
+ let details = "worldbank";
+ details = details.slice(0,3);
+ console.log(details);
+ 
+
+ </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./global.css"></link>
+</head>
+<body>
+ <script>
+ let details = "worldbank";
+ let result  = details.substring(0,3);
+ console.log(result);
+ console.log(details);
+ 
+
+ </script>
+
+</body>
+</html>
+=====================================================================

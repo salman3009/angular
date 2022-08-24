@@ -1,0 +1,58 @@
+Reactive Form consists of two types:
+1.FormGroup   --> There is no build in validation is present
+2.FormBuilder  -->There is build in validation
+===================================================
+FormBuilder:
+1.import the ReactFormsModule in app.module.ts:
+Example:
+app.modulte.ts
+import {ReactiveFormsModule} from '@angular/forms';
+  imports: [
+    ReactiveFormsModule
+  ],
+  
+2.import the FormBuilder,FormGroup and validators in particular component:
+Register.component.ts
+import { FormBuilder, FormGroup,Validators } from '@angular/forms';  
+
+3.instantiation inside the constructor for FormBuilder:
+Example:
+constructor(public formBuilder:FormBuilder){}
+
+4.initialize the value for input tag with form builder:
+register.compone.ts
+
+constructor(public formBuilder:FormBuilder){
+    this.registerForm= this.formBuilder.group({
+      fullName:[''],
+      email:[''],
+      password:[''],
+      password2:['']
+    })
+}
+
+5.adding required validation:
+register.component.ts:
+ constructor(public router:Router,public formBuilder:FormBuilder) {
+    this.registerForm= this.formBuilder.group({
+      fullName:['',[Validators.required]],
+      email:['',[Validators.required]],
+      password:['',[Validators.required]],
+      password2:['',[Validators.required]]
+    })
+}
+   
+===============================================================   
+
+
+
+
+
+
+
+
+
+
+
+
+

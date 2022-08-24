@@ -1,0 +1,27 @@
+<!-- <script>
+    let employee={
+        firstName:"akash",
+        age:22,
+        salaryList:[2000,4000,8000,10000],
+        option:true
+    };
+    console.log(employee);
+    console.log(employee.age);
+    console.log(employee.salaryList[0]);
+</script> -->
+
+<script>
+    let employee={
+        firstName:"akash",
+        age:22,
+        salaryList:[2000,4000,8000,10000],
+        option:true,
+        getCurrentAge:function(){
+            return this.age;
+        }
+    };
+    for(let obj in employee){
+        console.log(obj);
+        console.log(employee[obj]);
+    }
+</script>

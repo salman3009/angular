@@ -1,0 +1,136 @@
+Frontend Technology:
+HTML
+CSS
+javascript
+=========================================
+CSS - preprocessor 
+(i)SCSS
+(ii)SASS
+=========================================
+Javascript:
+<script>
+//Frontend technology:
+var fullName="salman";
+fullName = 45;
+fullName = true;
+</script>
+Typescript:
+=======================================
+Framework or library
+Reactjs   javascript or typescript
+vuejs     javascript or typescript
+Angular   typescript
+====================================
+typescript will not run in the browser
+browser will complie the following code:
+(i)html
+(ii)css
+(iii)javascript
+=============================================
+Nodejs -  to run the javascript outside the browser
+cmd:node -v
+===============================================
+Any javascript package you can install from npm
+npm - node package manager
+npm is a repository for javascript
+https://www.npmjs.com/
+===========================================
+cmd:npm i typescript
+global installation of the package:
+cmd:npm i -g typescript
+cmd: tsc -v
+==================================
+To run javascript outside browser:
+step1: create one file with extension .js
+example:hello.js
+step2: write some set of code
+example:
+var fullName="salman";
+fullName = 45;
+fullName = true;
+console.log(fullName);
+step3:open cmd in that particular
+cmd:node filename
+===========================================
+The extenstion for typescript is filename.tsc
+hell.ts
+var fullName="salman";
+console.log(fullName);
+To compile typescript:
+cmd:tsc filename
+//once u compile the code one more file with js extension will get created
+===================================================================
+Normal datetype:
+let fullName:string="salman";
+let age:number=23;
+let flag:boolean=true;
+flag = false;
+let address:any='chennai';
+address=true;
+============================================================
+Datatype for array:
+let details:any[]=[true,"salman",222];
+let laptop:string[]=['laptop','sony'];
+let ageDetails:number[]=[33,333,44];
+let flagDetails:boolean[]=[true,false,false];
+let phoneDetails:[number,string]=[22,"salman"];
+========================================================
+Datatype for object:
+let address:{fullname:string,flag:boolean,age:number} ={
+    fullname:"salman",
+    age:23,
+    flag:true
+};
+=================================================
+datatype for function
+function addition(a:number,b:number): number{
+    return a+b;
+}
+
+
+addition(22,22);
+
+arrow function:
+const addition = (a:number,b:number):number =>{
+        return a+b;
+}
+
+addition(22,22);
+===============================================
+//destructing
+let[a,b]:[number,number]=[22,22];
+console.log(a,b);
+let {address,age}={address:"salman",age:23};
+=================================================
+//template string
+let result=`Hello my my name is ${a}`;
+console.log(result);
+=========================================
+let result=`Hello my my name is ${a} and ${b}`;
+console.log("Hello my name is "+a);
+==============================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

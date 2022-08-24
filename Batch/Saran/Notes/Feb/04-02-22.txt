@@ -1,0 +1,310 @@
+Template Driven.
+1.First import FormsModule in app.module.ts
+2.import NgForm in the particular component
+3.we need to write one method inside the component to differentiate valid and invalid 
+4.we need to provide reference name and method inside the form in html:
+EXample:
+ <form  #submitForm="ngForm" (ngSubmit)="onSubmitHandler(submitForm)">
+5.Inside the input tag we need provide following things
+     1.name
+	 2.ngModel
+	 3.reference name
+Example:
+<input
+          type="email"
+          placeholder="Email Address"
+          name="email"
+          ngModel
+          #email="ngModel"
+          required
+        />
+6.Validation reference name and validation property
+Example:
+<div *ngIf="email.invalid && email.errors?.required" class="alert alert-danger">
+          Email cannot be empty
+        </div>		
+
+7.other type of validation we need add below property
+ <input
+        autocomplete="off"
+          type="password"
+          placeholder="Password"
+          name="password"
+          ngModel
+          #password="ngModel"
+          required
+          minlength="6"
+          maxlength="12"
+        />
+
+     <div *ngIf="password.invalid && password.errors?.minlength" class="alert alert-danger">
+          Password minimum should b 6
+        </div>
+
+        <div *ngIf="password.invalid && password.errors?.maxlength" class="alert alert-danger">
+          Password maximum shoud be 6
+        </div>		
+======================================================================		
+
+Regular Expressions:
+
+1.Digits only ---> ^[0-9]*$
+2.Alphabets only --> ^[a-zA-Z]*$
+3.Indian Mobile Number -->^[789]{1}[0-9]{9}$
+4.Email --> \w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*
+5.Username:Alphabets,Digits and Hyphens only-->([A-Za-z0-9]+)
+6.Passwords:6 to 15 characters; atleast one upper case letter,one lower case letter and one digit-->
+  ((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15})
+===========================================================
+Example:
+pattern="[0-9]{6,20}"
+=========================================================
+      <input
+        autocomplete="off"
+          type="password"
+          placeholder="Password"
+          name="password"
+          ngModel
+          #password="ngModel"
+          required
+          minlength="6"
+          maxlength="12"
+          pattern="[a-zA-Z0-9]*"
+        />
+		
+   <div *ngIf="password.invalid && password.errors?.pattern" class="alert alert-danger">
+          only alphabets  and number is allowed
+        </div>
+==============================================================		
+<input
+          type="email"
+          placeholder="Email Address"
+          name="email"
+          ngModel
+          #email="ngModel"
+          required
+          email
+        />
+		
+    <div *ngIf="email.invalid && email.errors?.required" class="alert alert-danger">
+          Email cannot be empty
+        </div>		
+
+============================================================================
+Set of validation:
+1.required
+2.minlength
+3.maxlength
+4.email
+5.pattern
+===================================================
+Contact form 
+1.Create a new component and attach the link in header
+2.implemente template driven form 
+3.Follwing things need to be included
+4. Email ----------> text box --------------> required,email
+5. Gender --------->radio button ---------->required
+6. Citizenship------> checkbox----------->required 
+7. Description------>textArea------------>optional,pattern 
+8. Country------->dropdown--------------->required
+9. mobile number ----->text box----------> indian mobile number validation,required 
+===============================================================
+Getting form data in template driven
+ let obj={
+       email:form.value.email,
+       password:form.value.password
+     };
+     alert("success");
+     console.log("final data",obj);
+===============================================================
+Dashboard component:
+1.create the dashboard component
+2.cmd:ng g c dashboard 
+3.app.routing.module 
+import { DashboardComponent } from './dashboard/dashboard.component';
+{
+  path:'dashboard',component:DashboardComponent
+}
+4.
+dashboard.component.html:
+ <section class="container">
+      <h1 class="large text-primary">
+        Dashboard
+      </h1>
+      <p class="lead"><i class="fas fa-user"></i> Welcome Salman</p>
+      <div class="dash-buttons">
+        <a href="create-profile.html" class="btn btn-light"
+          ><i class="fas fa-user-circle text-primary"></i> Edit Profile</a
+        >
+        <a href="add-experience.html" class="btn btn-light"
+          ><i class="fab fa-black-tie text-primary"></i> Add Experience</a
+        >
+        <a href="add-education.html" class="btn btn-light"
+          ><i class="fas fa-graduation-cap text-primary"></i> Add Education</a
+        >
+      </div>
+
+      <h2 class="my-2">Experience Credentials</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th class="hide-sm">Title</th>
+            <th class="hide-sm">Years</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tech Guy Web Solutions</td>
+            <td class="hide-sm">Senior Developer</td>
+            <td class="hide-sm">
+              02-03-2009 - 01-02-2014
+            </td>
+            <td>
+              <button class="btn btn-danger">
+                Delete
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>Traversy Media</td>
+            <td class="hide-sm">Instructor & Developer</td>
+            <td class="hide-sm">
+              02-03-2015 - Now
+            </td>
+            <td>
+              <button class="btn btn-danger">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 class="my-2">Education Credentials</h2>
+      <table class="table">
+          <thead>
+            <tr>
+              <th>School</th>
+              <th class="hide-sm">Degree</th>
+              <th class="hide-sm">Years</th>
+              <th ></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Northern Essex</td>
+              <td class="hide-sm">Associates</td>
+              <td class="hide-sm">
+                02-03-2007 - 01-02-2009
+              </td>
+              <td>
+                <button class="btn btn-danger">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="my-2">
+            <button class="btn btn-danger">
+                <i class="fas fa-user-minus"></i>
+
+                Delete My Account
+            </button>
+          </div>
+    </section>
+
+========================================
+Internal Routing with router
+1.impor the package from angular/router
+Example:
+import {Router} from '@angular/router';
+2.Do the instantiation for router package:
+public credentialsFlag:boolean=false;
+  constructor(public router:Router) { }
+3.use navigate method 
+this.router.navigate(['/dashboard']);
+=========================================
+Reactive Form:
+1.all the validation to be written in ts file 
+2. it is very useful for complex form 
+3. unit testing is possible 
+=========================================
+Reactive Form.
+1.import the Reactive form in app.module.ts 
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+  imports: [
+    ReactiveFormsModule,
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule
+  ],
+  
+2.import formGroup and formControl from angular/forms:
+Example:
+import {FormGroup,FormControl} from '@angular/forms';
+
+3.create FormGroup and initialize it
+Example:
+  public registerForm:FormGroup;
+  constructor() {
+    this.registerForm= new FormGroup({
+      email:new FormControl(null),
+      password:new FormControl(null),
+      password2:new FormControl(null)
+    })
+   }
+====================================================================   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

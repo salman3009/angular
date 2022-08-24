@@ -1,0 +1,39 @@
+web page - single page 
+website - collection of web page.
+=================================
+http - hyper text transfer protocol
+html - hyper text markup language.
+===================================
+web server: anything application that is going to provide service from web is called web server.
+web application:
+Frontend
+Backend
+=========================================
+HTML --> will help to design layout of the web page.
+
+HyperText ---> information (one information will consists of another information)
+
+markup--><element></element>
+
+language --> to communicate with machine
+====================================================
+sample code:
+<html>
+<head>
+<title>Chennai</title>
+</head>
+<body></body>
+</html>
+==============================================
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,116 @@
+To start the project:
+cmd:ng serve
+===============================
+Inside the script any key can be run using the following command:
+cmd:npm run key
+cmd:npm run start
+cmd:npm run build
+cmd:npm run test
+cmd:npm run lint
+cmd:npm run e2e
+dependencies:this package is needed mandatory for both development and production build 
+devDependencies:this package is only for development purpose
+==========================================================
+package-lock.json --> consists of detailed information about the package.json
+Component:
+1.html
+2.scss
+3.test
+4.typescript file
+output:
+index.html -------------> selector(app-root)-------------->app.module.ts--->bootstrap--->app.component.ts--->app.component.html
+========================================================================
+app.component.html
+<div class="app-center">
+  <div class="box">
+    <div>Sony</div>
+    <div>2000</div>
+    <div>20%</div>
+  </div>
+</div>
+
+sass
+.app-center
+   margin-left: 49%
+
+.box
+  width: 100px
+  height: 100px
+  border: 1px solid red
+  background-color: blue
+  padding: 2px
+  text-align: center
+  padding: 25px
+=============================================================================  
+app.component.sass
+.app-center
+   margin-left: 49%
+
+.box
+  width: 100px
+  height: 100px
+  border: 1px solid red
+  background-color: #333333
+  padding: 2px
+  text-align: center
+  padding: 25px
+
+
+
+
+
+input[type=text], select
+  width: 100%
+  padding: 12px 20px
+  margin: 8px 0
+  display: inline-block
+  border: 1px solid #ccc
+  border-radius: 4px
+  box-sizing: border-box
+
+input[type=submit]
+  width: 100%
+  background-color: #333333
+  color: white
+  padding: 14px 20px
+  margin: 8px 0
+  border: none
+  border-radius: 4px
+  cursor: pointer
+
+  &:hover
+    background-color: #333333
+
+div
+  border-radius: 5px
+  background-color: #f2f2f2
+  padding: 10px  
+  
+app.component.html
+
+<div>
+  <div class="box app-center">
+    <div>Sony</div>
+    <div>2000</div>
+    <div>20%</div>
+  </div>
+  <div>
+    <form action="/action_page.php">
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="firstname" placeholder="Your name..">
+  
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+  
+      <label for="country">Country</label>
+      <select id="country" name="country">
+        <option value="australia">Australia</option>
+        <option value="canada">Canada</option>
+        <option value="usa">USA</option>
+      </select>
+    
+      <input type="submit" value="Submit">
+    </form>
+  </div> 
+</div>
+============================================================================

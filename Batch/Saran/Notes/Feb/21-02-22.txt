@@ -1,0 +1,82 @@
+Creating post method for registration:
+1.create a method inside the service class 
+example:
+global.service.ts
+  postRegister(post){
+    return this.http.post<{list:any}>('http://localhost:3000/posts',post);
+  }
+2.create a method to call register component:
+   onSubmitHandler(){
+     console.log(this.registerForm.value);
+     if(this.registerForm.value.password !=this.registerForm.value.password2){
+       this.registerForm.patchValue({
+         password:'',
+         password2:''
+       });
+       alert("password not match");
+       return;
+     }
+     const{fullName,email,password}=this.registerForm.value;
+     this.http.postRegister({fullName,email,password}).subscribe(()=>{
+      this.registerForm.reset({
+        email:"salman@gmail.com"
+      });
+       this.router.navigate(['/login']); 
+     },(error)=>{
+      console.log("error");
+     })
+    
+
+   }
+==========================================================================
+login component check for username and password:
+1.write the method inside the service class
+  getRegisterList(){
+    return this.http.get<{list:any}>('http://localhost:3000/posts');
+  }
+
+2.inside the login component write a method
+     this.global.getRegisterList().subscribe((response)=>{
+          console.log(response);
+     },(error)=>{
+          console.log(error);
+     }); 
+  
+ 3.
+onSubmitHandler(form:NgForm){
+     if(form.invalid){
+       this.credentialsFlag=true;
+       return;
+     }
+     this.credentialsFlag=false;
+
+     let obj={
+       email:form.value.email,
+       password:form.value.password
+     };
+
+  
+     this.global.getRegisterList().subscribe((response)=>{
+          console.log(response);
+      let listDetails:any=response;
+      let loginFlag=false;
+      for(let i=0;i<listDetails.length;i++){
+        if(listDetails[i].email.includes(obj.email) && listDetails[i].password.includes(obj.password)){
+          this.router.navigate(['/dashboard']);
+          loginFlag=true;
+          break;
+        }
+
+      }
+      if(!loginFlag){
+        alert("data not found");
+      }
+    
+
+     },(error)=>{
+          console.log(error);
+     }); 
+
+    // this.router.navigate(['/dashboard']);
+  }
+==================================================================== 

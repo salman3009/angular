@@ -1,0 +1,49 @@
+Head Element:
+<title>First Class</title>
+paragraph tag:
+<p></p>
+Block Element and non block element
+Example:
+<p></p>
+Non block element:
+  <b>Hello</b>
+  <b>World</b>
+============================
+  <h1>India</h1>
+  <h2>Delhi</h2>
+  <h3>Potter Road</h3>
+  <h4>2nd Street</h4>
+  <h5>246/3</h5>
+  <h6>3333123</h6>
+=============================
+ <a href="https://google.com">the Republic of India</a>  
+ ================================================
+ For image tag:
+ 1.There is no self closing tag
+ 2.Download the image and save in same location both html file and image 
+ 3.check the name of the image and extension as well
+ 4.use absolute path inside the html file 
+EXample:
+  <img src="./laptop.jpg">
+===================================================
+  <img src="./laptop.jpg" width="200" height="200">
+  
+  <img alt="laptop">
+  ================================================
+    <ul>
+    <li>Tea</li>
+    <li>Coffee</li>
+    <li>Milk</li>
+  </ul>
+  <ol>
+    <li>Tea</li>
+    <li>Coffee</li>
+    <li>Milk</li>
+  </ol>
+  ================================================ 
+   <div>Hello world</div>
+  <div>Hello world</div>
+  <span>Hello Details</span>
+  <span>Hello Details</span>
+ ===============================================
+ 

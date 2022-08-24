@@ -1,0 +1,74 @@
+json-server --watch db.json
+HTTP Method:
+Four Types:
+GET            - Getting information from the server 
+POST           - user is provding some information
+PATCH          - editing some data 
+DELETE         - deleting the item 
+
+
+postman -- It is tool to test the backend api 
+body data can be send only for post and patch
+get and delete we can send the data in the url form 
+======================================================
+Async Code:
+Service class:Singleton Object
+cmd:ng g service global 
+1.declare a variable inside the global.service.ts
+public fullName:string="salman";
+2.import this package in any of the component:
+import {GlobalService} from '../global.service';
+3.Do the instantiation for service class:
+ constructor(public router:Router,public global:GlobalService) { }
+4.accessing the component data:
+ {{global.fullName}}
+=========================================================
+For api call:
+1.import {HttpClientModule} from '@angular/common/http';
+  imports: [
+    ReactiveFormsModule,
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule
+  ],
+  
+2.import the httpClient in service class:
+import { HttpClient } from "@angular/common/http";
+
+
+3.  constructor(public http:HttpClient) { }
+
+
+4.get method:
+  getDevelopers(){
+    return this.http.get('http://localhost:3000/profile');
+  }
+
+5.promise return will receive using then block
+<script>
+
+  function addition(){
+
+    return new Promise((yes,no)=>{
+       yes("data");
+    })
+  }
+
+addition().then((result)=>{
+console.log(result);
+})  
+
+
+</script>
+6.promise if it return we need to use then block
+  observable if it return ew need to use subscribe
+  
+
+
+
+
+
+
+
+ 

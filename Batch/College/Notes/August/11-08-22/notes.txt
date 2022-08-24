@@ -1,0 +1,53 @@
+Whenever you need custom block element we can use div tag.
+Box Modal:
+1.width * height 
+2.padding 
+3.border 
+4.margin 
+=========================================
+display:block 
+display:inlin-block 
+<html>
+    <head>
+        <style>
+            .box{
+                width: 400px;
+                height: 400px;
+                border:10px solid green;
+                margin-top:40px;
+                border-radius: 50px;
+                background-image: url('./laptop.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+                display: inline-block;
+            }
+        </style>
+
+    </head>
+    <body>
+         <div class="box">
+
+         </div>        
+         <div class="box">
+
+        </div>  
+        <div class="box">
+
+        </div>  
+        <div class="box">
+
+        </div>  
+        <div class="box">
+
+        </div>  
+         
+    </body>
+</html>
+===============================================
+inline element will not take width,height and margin top and bottom property
+example:span,a,img 
+=============================================
+CSS assignment:
+https://forms.gle/NhvF5f3mEvYEbtEZ6
+1 to 5
+===================================================

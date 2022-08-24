@@ -1,0 +1,166 @@
+<html>
+    <head>
+        <style>
+
+            .header{grid-area: header;}
+            .footer{grid-area: footer;}
+            .side-menu{grid-area: side-menu;}
+            .main-content{grid-area: main-content;}
+            
+            .grid-container{
+                display: grid;
+                gap:20px;
+                grid-template-areas: 'header header header'
+                'side-menu main-content main-content'
+                'footer footer footer';
+            }
+            .footer{
+               background-color: green;
+               height: 100px;
+            
+            }
+            .side-menu{
+                background-color: blue;
+                height: 500px;
+                width: 300px;
+                margin-left:15px;
+               
+            }
+            .main-content{
+               width: 100%;
+            
+            }
+        </style>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style-type: none;
+        background-color: #8285ee;
+        width: 97%;
+        height: 100px;
+        margin-top:0px;
+    }
+
+    li {
+        display: inline-block;
+        padding: 32px;
+        color: white;
+        font-size: 27px;
+        font-weight: 700;
+    }
+
+    .button-right {
+        float: right;
+    }
+
+    button {
+        width: 89px;
+        height: 39px;
+        border: 0;
+        color: white;
+        background-color: #0018ff;
+    }
+</style>
+<style>
+    .box{
+        width: 200px;
+        height: 100px;
+        background-color: green;
+        margin:10px;
+    }
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+</style>
+
+    </head>
+    <body>
+        <div class="grid-container">
+           <div class="header">
+            <ul>
+                <li>Home</li>
+                <li>Contact</li>
+                <li>Service</li>
+                <li>Help</li>
+                <li class="button-right">
+                    <button>Login</button>
+                </li>
+                <li class="button-right">
+                    <button>Register</button>
+                </li>
+            </ul>
+        
+           </div>
+           <div class="side-menu">
+            <div class="container">
+                <div class="box">
+    
+                </div>
+                <div class="box">
+    
+                </div>
+                <div class="box">
+    
+                </div>
+                <div class="box">
+    
+                </div>  
+            </div>
+           </div>
+           <div class="main-content">
+            <div class="container">
+                <div class="box">
+    
+                </div>
+                <div class="box">
+    
+                </div>
+                <div class="box">
+    
+                </div>
+                <div class="box">
+    
+                </div>
+                <div class="box">
+    
+                </div>
+                <div class="box">
+    
+                </div>
+                <div class="box">
+    
+                </div>
+                <div class="box">
+    
+                </div>
+                <div class="box">
+    
+                </div>
+                <div class="box">
+    
+                </div>
+                <div class="box">
+    
+                </div>
+                <div class="box">
+    
+                </div>
+                <div class="box">
+    
+                </div>
+                <div class="box">
+    
+                </div>
+            </div>
+           </div>
+           <div class="footer"></div>
+        </div>
+    </body>
+</html>

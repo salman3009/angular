@@ -1,0 +1,330 @@
+document.write property:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./hello.css"></link>
+  <!-- <script src='./hello.js'></script> -->
+</head>
+<script>
+document.write("<p>Hello world</p>");
+document.write("<div>International Bank</div>");
+</script>
+<body>
+
+  
+</body>
+</html>
+=======================================================
+<script>
+document.write("<p id='sub'>Hello world</p>");
+document.write("<div class='heading'>International Bank</div>");
+</script>
+============================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./hello.css"></link>
+  <!-- <script src='./hello.js'></script> -->
+</head>
+<body>
+<p id="sub"></p>
+<script>
+  document.getElementById('sub').innerHTML="world bank";
+  </script>  
+</body>
+</html>
+===================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./hello.css"></link>
+  <!-- <script src='./hello.js'></script> -->
+</head>
+<body>
+<p id="sub"></p>
+<img id="head-image">
+<script>
+  document.getElementById('sub').innerHTML="world bank";
+  document.getElementById('head-image').src="./banking.jpg";
+  </script>  
+</body>
+</html>
+=======================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="./hello.css"></link> -->
+  <!-- <script src='./hello.js'></script> -->
+</head>
+<body>
+<p id="sub"></p>
+<img id="head-image">
+<script>
+  document.getElementById('sub').innerHTML="world bank";
+  document.getElementById('head-image').src="./banking.jpg";
+  document.getElementById('sub').style.color="blue";
+  </script>  
+</body>
+</html>
+=============================================================
+<script>
+  document.getElementById('sub').innerHTML="world bank";
+  document.getElementById('head-image').src="./banking.jpg";
+  document.getElementById('sub').style.color="blue";
+  document.getElementById('sub').style.backgroundColor="black";
+  document.getElementById('sub').style.fontSize="22px";
+  </script>
+===========================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="./hello.css"></link> -->
+  <!-- <script src='./hello.js'></script> -->
+</head>
+<body>
+<button id="btn" onClick="buttonHandler()">Click here</button>
+<script>
+  function buttonHandler(){
+    alert("button is clicked");
+  }
+</script>
+</body>
+</html>
+=============================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="./hello.css"></link> -->
+  <!-- <script src='./hello.js'></script> -->
+</head>
+<body>
+<select id="sub" onChange="changeHandler()">
+  <option value="IN">India</option>
+  <option value="USA">USA</option>
+  <option value="Canada">Canada</option>
+</select> 
+<p id="sub-heading">hello</p>
+<script>
+  function changeHandler(){
+    var result = document.getElementById("sub").value;
+    document.getElementById('sub-heading').innerHTML = result;
+  }
+</script>
+</body>
+</html>  
+=============================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="./hello.css"></link> -->
+  <!-- <script src='./hello.js'></script> -->
+</head>
+<body>
+<button id="btn" onmouseover="mouseHandler()">click here</button>
+
+<script>
+function mouseHandler(){
+  document.getElementById('btn').style.backgroundColor="red";
+}
+</script>
+</body>
+</html>
+========================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="./hello.css"></link> -->
+  <!-- <script src='./hello.js'></script> -->
+</head>
+<body>
+<button id="btn" onmouseout="mouseHandler()">click here</button>
+
+<script>
+function mouseHandler(){
+  document.getElementById('btn').style.backgroundColor="red";
+}
+</script>
+</body>
+</html>
+=========================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="./hello.css"></link> -->
+  <!-- <script src='./hello.js'></script> -->
+</head>
+<body>
+<button id="btn" onmouseout="mouseHandler()">click here</button>
+<input type="text" onkeypress="keyHandler()"/>
+<script>
+function mouseHandler(){
+  document.getElementById('btn').style.backgroundColor="red";
+}
+
+function keyHandler(){
+    alert("onkeypress")
+}
+</script>
+</body>
+</html>
+==============================================================
+function:
+<script>
+function addition(a,b){
+  console.log(a,b);
+  var result = a + b;
+  console.log(result);
+}
+addition(2,2);
+</script>
+
+return keyword:
+<script>
+function addition(a,b){
+  console.log(a,b);
+  var result = a + b;
+  console.log("The addition value is "+result);
+  return result;
+}
+console.log(addition(2,2));
+</script>
+
+<script>
+function addition(a,b){
+  console.log(a,b);
+  var result = a + b;
+  console.log("The addition value is "+result);
+  return result;
+}
+console.log(addition(2,2));
+
+function subtraction(a,b){
+  return a-b;
+}
+
+console.log(subtraction(4,2));
+</script>
+==============================================================
+variable declaration:
+<script>
+var myNum,age=56;
+myNum = 56;
+console.log(myNum,age);
+</script>
+
+<script>
+function addition(){
+  let age = 44;
+  console.log(age);
+  {
+    console.log(age);
+  }
+}
+addition();
+
+</script>
+<script>
+ let age = 44;
+function addition(){
+ 
+  console.log(age);
+  {
+    console.log(age);
+  }
+}
+addition();
+console.log(age);
+
+</script>
+=========================================================
+let and const:
+<script>
+
+let age = 56;
+age = 67;
+
+const PI = 3.14;
+
+
+</script>
+=======================================================
+<script>
+
+let age = 56;
+let fullName = "salman";
+let lastName = 'g';
+console.log(typeof age);
+console.log(typeof fullName);
+console.log(typeof lastName);
+</script>
+
+
+<script>
+
+let age = 56.44;
+let fullName = "salman";
+let lastName = 'g';
+let flag = true;
+flag = false;
+let address;
+console.log(typeof age);
+console.log(typeof fullName);
+console.log(typeof lastName);
+console.log(typeof flag);
+console.log(typeof address);
+</script>
+
+
+<script>
+
+let age = 56.44;
+let fullName = "salman";
+let lastName = 'g';
+let flag = true;
+flag = false;
+let address;
+let phone = null;
+console.log(typeof age);
+console.log(typeof fullName);
+console.log(typeof lastName);
+console.log(typeof flag);
+console.log(typeof address);
+console.log(typeof phone);
+</script>
+=======================================================

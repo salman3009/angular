@@ -1,0 +1,154 @@
+inline style:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="color:#648962b5;font-size:25px;">Welcome to programming</div>
+</body>
+</html>
+========================================================================
+Internal style:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+div{
+    color:#648962b5;
+    font-size:25px;
+    text-align: center;
+}
+</style>
+
+<body>
+    <div>Welcome to programming</div>
+</body>
+</html> 
+==============================================================
+Id Selector:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+div{
+    color:#648962b5;
+    font-size:25px;
+    text-align: center;
+}
+
+#data-heading{
+    color:red;
+}
+</style>
+
+<body>
+    <div>Welcome to programming</div>
+    <p>List of course</p>
+    <p id="data-heading">HTML</p>
+    <p>css</p>
+</body>
+</html> 
+=======================================================
+class selector:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+div{
+    color:#648962b5;
+    font-size:25px;
+    text-align: center;
+}
+
+#data-heading{
+    color:red;
+}
+
+.common-heading{
+    text-align: center;
+}
+</style>
+
+<body>
+    <div>Welcome to programming</div>
+    <p class="common-heading">List of course</p>
+    <p id="data-heading" class="common-heading">HTML</p>
+    <p class="common-heading">css</p>
+</body>
+</html> 
+=========================================================
+universal selector:
+*{
+    text-align: center;
+}  
+====================================================
+Grouping selector:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+*{
+    text-align: center;
+}   
+
+
+#data-heading, div{
+    color:#648962b5;
+    font-size:25px;
+
+}
+
+
+</style>
+
+<body>
+    <div>Welcome to programming</div>
+    <p class="common-heading">List of course</p>
+    <p id="data-heading" class="common-heading">HTML</p>
+    <p class="common-heading">css</p>
+</body>
+</html> 
+=================================================================
+Writing external stylesheet:
+1.open a new file
+2.copy paste the below code:
+*{
+    text-align: center;
+}   
+
+
+#data-heading, div{
+    color:#648962b5;
+    font-size:25px;
+
+}
+3.save a file with filename.css 
+4.import the css in html using below tag:
+ <link rel="stylesheet" href="./global.css"/>
+ ===================================================================

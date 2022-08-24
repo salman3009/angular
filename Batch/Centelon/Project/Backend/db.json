@@ -1,0 +1,75 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "rajesh",
+      "lastName": "H",
+      "email": "rajesh@gmail.com",
+      "password": "123456"
+    },
+    {
+      "firstName": "harry11111",
+      "lastName": "g",
+      "email": "harry@gmail.com",
+      "password": "12345",
+      "id": 2
+    },
+    {
+      "firstName": "harry11111",
+      "lastName": "g",
+      "email": "suresh@gmail.com",
+      "password": "12345",
+      "id": 3
+    },
+    {
+      "firstName": "salman2222",
+      "lastName": "salman2222",
+      "email": "salman@gmail.com",
+      "password": "12345",
+      "id": 4
+    },
+    {
+      "firstName": "salman2222",
+      "lastName": "salman2222",
+      "email": "salman@gmail.com",
+      "password": "12345",
+      "id": 5
+    },
+    {
+      "firstName": "asdfasdfasdf",
+      "lastName": "asdfadf",
+      "email": "adsfaf@gmail.com",
+      "password": "12345",
+      "id": 6
+    }
+  ],
+  "expense": [
+    {
+      "title": "home purchase new",
+      "notes": "from hdfc bank",
+      "category": 2,
+      "amount": 70000,
+      "paidBy": "Salman",
+      "date": "29/03/2022",
+      "id": 3
+    },
+    {
+      "title": "laptop ",
+      "notes": "purchase",
+      "category": "2",
+      "amount": "60000",
+      "paidBy": "mohan",
+      "date": "2022-04-07T04:50:10.813Z",
+      "id": 4
+    },
+    {
+      "title": "home purchase",
+      "notes": "from hdfc bank",
+      "category": 2,
+      "amount": 70000,
+      "paidBy": "Salman",
+      "date": "29/03/2022",
+      "id": 5
+    }
+  ]
+}

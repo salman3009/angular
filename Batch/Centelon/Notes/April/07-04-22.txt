@@ -1,0 +1,110 @@
+HTTP API Call:
+step1:inside the app.module.ts 
+import { HttpClientModule} from "@angular/common/http";
+  imports: [
+    HttpClientModule
+  ],
+  
+step2: go to service class:
+global.service.ts 
+import { HttpClient } from "@angular/common/http";
+  constructor(public http: HttpClient) { }
+
+step3: inside the service class:
+//write a method for post 
+//it consists of two paramets 
+ 1.url
+ 2.body data 
+//it will return the observable data;
+ 
+  postUserHandler(obj:any){
+    return this.http.post('http://localhost:3000/users',obj);
+  }
+
+step4: Go to register component:
+import {GlobalService} from '../global.service';
+
+  constructor(public global:GlobalService) {
+
+   }  
+
+step5: write the subscibe method inside the register component:
+onSubmitHandler(){
+    this.global.postUserHandler(this.registerForm.value).subscribe((success)=>{
+     console.log(success);
+    },(error)=>{
+     console.log(error);
+    })
+}   
+
+======================================================================================
+get method for login:
+  getUserHandler(){
+    return this.http.get('http://localhost:3000/users');
+  }
+  
+login.component.ts 
+  onSubmitHandler(form:NgForm){
+     this.global.loginFlag = false;
+        if(form.invalid){
+        this.errorFlag = true;
+          return;
+        };
+        this.global.getUserHandler().subscribe((success)=>{
+           console.log(success);
+           let result:any = success;
+           let finalResult = result.filter((obj:any)=>{
+            return obj.email == form.value.email && obj.password ==form.value.password
+           });
+           if(finalResult.length>0){
+            this.global.loginFlag = true;
+            this.router.navigateByUrl('/dashboard');
+           }
+           else{
+            this.errorFlag = true;
+           }
+        },(error)=>{
+          this.errorFlag = true;
+        })
+  }  
+  
+==============================================================================================  
+expense post method:
+  postExpenseHandler(obj:any){
+    return this.http.post('http://localhost:3000/expense',obj);
+  }
+  
+  onAdd(event:any){
+    console.log(event);
+    if(event.bikeName && event.favourite && event.external && event.amount && event.paidBy){
+      let obj={
+        title: event.bikeName,
+        notes: event.favourite,
+        category: event.external,
+        amount: event.amount,
+        paidBy: event.paidBy,
+        date: new Date()
+      }
+      this.global.postExpenseHandler(obj).subscribe((succes)=>{
+        this.listofExpense.push({
+          bikeName:event.bikeName,
+          favourite:event.favourite,
+          external:event.external,
+          amount:event.amount,
+          paidBy:event.paidBy,
+          date:new Date()
+        });
+        this.filterExpense =[...this.listofExpense];
+        this.tableFlag = true;
+        this.errorFlag = false;
+        return;
+      },(failure)=>{
+        this.errorFlag= true;
+      })
+    }
+    else{
+      this.errorFlag= true;
+    }
+  
+  }
+ ======================================================================================== 

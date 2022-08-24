@@ -1,0 +1,163 @@
+cmd:ng g directive appAlert
+appAlert.js
+import { Directive,ElementRef } from '@angular/core';
+
+  constructor(public elementRef:ElementRef) {
+    this.elementRef.nativeElement.innerHTML="<div>Hello world</div>";
+   }
+
+
+login.component.html:
+  <div appAppAlert></div>
+======================================================================
+Passing Input parameter:
+  <div appAppAlert [error]="'salman'"></div>
+appAlert.js 
+import { Directive,ElementRef,Input } from '@angular/core';
+
+@Directive({
+  selector: '[appAppAlert]'
+})
+export class AppAlertDirective {
+
+  @Input('error')details!:string;
+
+  constructor(public elementRef:ElementRef) {
+   
+   }
+
+   ngOnInit(){
+    this.elementRef.nativeElement.innerHTML=`<div>Hello world ${this.details}</div>`;
+   }
+
+}
+
+==============================================================================
+ import { Directive,ElementRef,Input,HostListener } from '@angular/core';
+ 
+   @HostListener("click", [ "$event" ])
+   onMouse(event:any)
+   {
+    this.elementRef.nativeElement.innerHTML=`<div>Hello world mouse enter</div>`;
+   }
+
+   @HostListener("mouseleave", [ "$event" ])
+   onChange(event:any)
+   {
+    this.elementRef.nativeElement.innerHTML=`<div>Hello world mouse leave</div>`;
+   }  
+
+====================================================================================
+HostBinding:
+import { Directive,ElementRef,Input,HostListener,HostBinding } from '@angular/core';
+
+@Directive({
+  selector: '[appAppAlert]'
+})
+export class AppAlertDirective {
+
+  @Input('error')details!:string;
+  @HostBinding('title') title!:string;
+  @HostBinding('id') id!:string;
+
+  constructor(public elementRef:ElementRef) {
+   
+   }
+
+   ngOnInit(){
+    this.elementRef.nativeElement.innerHTML=`<div>Hello world ${this.details}</div>`;
+    this.title="hello directive";
+    this.id="2";
+   }
+
+   @HostListener("click", [ "$event" ])
+   onMouse(event:any)
+   {
+    this.elementRef.nativeElement.innerHTML=`<div>Hello world mouse enter</div>`;
+   }
+
+   @HostListener("mouseleave", [ "$event" ])
+   onChange(event:any)
+   {
+    this.elementRef.nativeElement.innerHTML=`<div>Hello world mouse leave</div>`;
+   }
+
+}
+================================================================================
+Route params:
+{
+  path:'developer/:id',component:DeveloperComponent
+}
+
+============================================================
+import { ActivatedRoute } from '@angular/router';
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe((obj)=>{
+      console.log(obj);
+    })
+     this.getDevelopers();
+
+  }
+ ==============================================================
+ {
+  path:'auth',children:[
+    {
+      path:'login',component:LoginComponent
+    },
+    {
+      path:'register',component:RegisterComponent
+    }
+  ]
+}
+
+=================================================================
+import { Injectable } from '@angular/core';
+import {CanDeactivate} from '@angular/router';
+
+
+export interface CanComponentDeactivate
+{
+  canLeave: boolean;
+}
+
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class CanDeactivateService implements CanDeactivate<CanComponentDeactivate> {
+
+  constructor() { }
+
+  canDeactivate(component: CanComponentDeactivate){
+      if(component.canLeave){
+        return true;
+      }
+      else{
+        return confirm("Do you want leave the current page");
+      }
+  }
+}
+========================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

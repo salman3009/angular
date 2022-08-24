@@ -1,0 +1,50 @@
+How to use Image in Angular:
+1.First download the image or already saved image keep it ready
+2.paste the image inside the angular in following location:
+example:src/assets/
+3.you can use any extension but mostly png or jpg or jpeg
+4.you can use img tag to refer the location of the image:
+<img src="../assets/offer.png"/>
+==============================================================
+property binding for image
+1.Declare two variable inside the component:
+example:
+   public width:number=20;
+   public height:number=20;
+2.Inside the html put the width and height propery with array bracket and bind with ts variable:
+example:
+  <img [width]="width" [height]="height" src="../assets/offer.png"/>
+3.To change the value you can use this keyword and set in class
+example:
+     this.width=100;
+     this.height=100;
+========================================================================	 
+Directives:
+DOM manipulation - Document object Model
+example:
+*ngIf
+*ngFor
+*ngSwitch
+=========================================
+*ngIf:
+1.to use this one we can declare one separate variable like true or false
+example:
+public flag:boolean=false;
+2.Add in any html tag *ngIf="flag" flag is the dynamic variable of a class:
+example:
+ <div  *ngIf="flag" class="box app-center">
+ </div>
+============================================================================== 
+How to create interface:
+1.create a file with capital letter with ts extension
+example:
+Product.ts
+2.Give variable inside the interface with datatype
+example:
+interface Product{
+    product:string;
+    offer:string;
+    price:number;
+}
+=========================================================
+

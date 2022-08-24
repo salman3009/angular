@@ -1,0 +1,16 @@
+1.import in app.routing.module.ts
+import {CanDeactivateService} from './can-deactivate.service';
+  {
+      path:'register',component:RegisterComponent , canDeactivate:[CanDeactivateService]
+    }
+	
+2.register.component.ts:
+import {CanComponentDeactivate} from '../can-deactivate.service';
+
+export class RegisterComponent implements OnInit,CanComponentDeactivate {
+
+  public registerForm:FormGroup;
+  public canLeave: boolean = false;
+
+}  
+=================================================================================	

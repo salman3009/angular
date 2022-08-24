@@ -1,0 +1,110 @@
+Steps to delete the data from backend:
+step1:
+global.service.ts 
+  deleteExpenseHandler(id:any){
+    return this.http.delete('http://localhost:3000/expense/'+id);
+  }
+step2:
+dashboard.component.ts
+  onFinalDeleteHandler(event:any){
+    let id = this.listofExpense[event].id;
+    this.global.deleteExpenseHandler(id).subscribe(()=>{
+      this.listofExpense.splice(event,1);
+      this.filterExpense=[...this.listofExpense];
+    })
+  }
+ ==============================================================
+edit the data:
+  editExpenseHandler(id:any,obj:any){
+    return this.http.patch('http://localhost:3000/expense/'+id,obj);
+  }
+
+dashboard.component.ts
+  
+   onFinalEditHandler(obj:any){
+  let id = obj.list.id;
+  let result={...obj.list};
+  delete result.id;
+  this.global.editExpenseHandler(id,result).subscribe(()=>{
+    this.listofExpense = [...this.listofExpense];
+    this.listofExpense[obj.index].title = obj.list.title;
+    this.listofExpense[obj.index].notes =  obj.list.notes;
+    this.listofExpense[obj.index].category = obj.list.category;
+    this.listofExpense[obj.index].amount =  obj.list.amount;
+    this.listofExpense[obj.index].paidBy =  obj.list.paidBy;
+    this.listofExpense[obj.index].date =  obj.list.date;
+    this.filterExpense=[...this.listofExpense];
+  });
+  } 
+
+table.component.ts 
+  onFinalEditHandler(){
+   this.listofExpense[this.index].title = this.bikeName;
+   this.listofExpense[this.index].notes = this.favourite;
+   this.listofExpense[this.index].category = this.external;
+   this.listofExpense[this.index].amount = this.amount;
+   this.listofExpense[this.index].paidBy = this.paidBy;
+   this.listofExpense[this.index].date = this.date;
+   let obj={
+     index:this.index,
+     list:this.listofExpense[this.index]
+   };
+   this.editEvent.emit(obj);
+   this.onClearHandler();
+  }
+  
+=================================================================================
+to create interceptor:
+
+cmd: ng g interceptor middleware  
+
+app.module.ts:
+import { HttpClientModule,HTTP_INTERCEPTORS} from "@angular/common/http";
+import {MiddlewareInterceptor} from './middleware.interceptor';
+providers:  [{provide:HTTP_INTERCEPTORS,useClass:MiddlewareInterceptor,multi:true}], 
+
+
+
+interceptor.ts 
+import { Injectable } from '@angular/core';
+import {
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpInterceptor
+} from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { GlobalService } from './global.service';
+@Injectable()
+export class MiddlewareInterceptor implements HttpInterceptor {
+
+  constructor(public global:GlobalService) {}
+
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    request = request.clone({setHeaders:{"token":"100"}});
+    return next.handle(request);
+  }
+}
+
+==========================================================================
+life cycle hooks:
+ngOnInit()
+ngOnChange()
+ngOnDestroy()
+=====================================================================
+build:
+ng build --prod --aot 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

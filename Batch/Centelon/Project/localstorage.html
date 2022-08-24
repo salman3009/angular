@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj={
+            username:"salman",
+            age:44
+        };
+        sessionStorage.setItem("username","salman");
+        sessionStorage.setItem("email","salman@gmail.com");
+        sessionStorage.setItem("obj",JSON.stringify(obj));
+        let withoutparseresult = (sessionStorage.getItem('obj'));
+        console.log(typeof withoutparseresult);
+        let result = JSON.parse(sessionStorage.getItem('obj'));
+        console.log(typeof result);
+        sessionStorage.removeItem("username");
+        sessionStorage.removeItem("obj");
+    </script>
+</body>
+</html>

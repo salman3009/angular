@@ -1,0 +1,184 @@
+Reactive Form Validation:
+//import the following statement inside the app.module.ts:
+Step1:
+import { FormsModule ,ReactiveFormsModule } from '@angular/forms';
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserModule,
+    AppRoutingModule
+  ],
+  
+
+step2:
+Object --> FormGroup{
+property1:"value", -------------> formControl -----------> validation
+property2:"value"  ------------->formControl ------------>validation 
+}
+
+step2:
+please import the following package inside the register.component.ts 
+import { FormGroup, FormControl,Validators } from '@angular/forms';
+
+
+step3:
+please create the formGroup and formControl inside the class of register.component.ts 
+  public registerForm:FormGroup;
+
+  constructor(public router:Router) {
+    this.registerForm = new FormGroup({
+      firstName:new FormControl(null),
+      lastName:new FormControl(null),
+      email:new FormControl(null),
+      password:new FormControl(null)
+    });
+   }
+   
+step4:
+Bind the event in ts and html:
+  onSubmitHandler(){
+    this.router.navigateByUrl('/dashboard');
+
+  }
+
+html:
+    <form (ngSubmit)="onSubmitHandler()">
+	</form>
+
+
+step5:
+Add formGroup and formControl inside the html element:
+  <form  [formGroup]="registerForm" (ngSubmit)="onSubmitHandler()">
+                <div class="form-group">
+                <label for="exampleInputEmail1">First Name</label>
+                <input type="text"  formControlName="firstName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter first name">
+               
+              </div>
+              <div class="form-group">
+              <label for="exampleInputEmail1">Last Name</label>
+              <input type="text"  formControlName="lastName"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter last name">
+            </div>
+            <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email"  formControlName="email"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+          <label for="exampleInputEmail1">Password</label>
+          <input type="password"  formControlName="password"   class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter password">
+        </div>
+              <div class="btn-button">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+           
+            </form>
+			
+
+step6:
+To access the value :
+  onSubmitHandler(){
+    console.log(this.registerForm.value);
+    this.router.navigateByUrl('/dashboard');
+
+  }
+=========================================================================
+To bind the default value 
+    this.registerForm = new FormGroup({
+      email:new FormControl('salman@gmail.com')
+    });
+===============================================================	
+Validation property:
+step1:
+Inside the button add disabled property and bind with valid:
+    <button type="submit"  [disabled]="!registerForm.valid"class="btn btn-primary">Submit</button>
+	
+Add required keyword:
+  constructor(public router:Router) {
+    this.registerForm = new FormGroup({
+      firstName:new FormControl(null,[Validators.required]),
+      lastName:new FormControl(null,[Validators.required]),
+      email:new FormControl('salman@gmail.com',[Validators.required]),
+      password:new FormControl(null,[Validators.required])
+    });
+   }
+ 
+To show the validation we need to control:
+  get f() { return this.registerForm.controls; }
+html:
+                <div class="alert alert-danger" *ngIf="f['firstName'].errors?.['required']">Fullname is required</div>  
+  
+=====================================================================================================================  
+            <form  [formGroup]="registerForm" (ngSubmit)="onSubmitHandler()">
+                <div class="form-group">
+                <label for="exampleInputEmail1">First Name</label>
+                <input type="text"  formControlName="firstName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter first name">
+                <div class="alert alert-danger" *ngIf="f['firstName'].errors?.['required']">Fullname is required</div>
+              </div>
+              <div class="form-group">
+              <label for="exampleInputEmail1">Last Name</label>
+              <input type="text"  formControlName="lastName"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter last name">
+              <div class="alert alert-danger" *ngIf="f['lastName'].errors?.['required']">lastName is required</div>
+            </div>
+            <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email"  formControlName="email"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <div class="alert alert-danger" *ngIf="f['email'].errors?.['required']">lastName is required</div>
+          </div>
+          <div class="form-group">
+          <label for="exampleInputEmail1">Password</label>
+          <input type="password"  formControlName="password"   class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter password">
+          <div class="alert alert-danger" *ngIf="f['password'].errors?.['required']">lastName is required</div>
+        </div>
+              <div class="btn-button">
+                <button type="submit"  [disabled]="!registerForm.valid"class="btn btn-primary">Submit</button>
+              </div>
+           
+            </form>  
+  =====================================================================================================
+  other types of validation:
+    firstName:new FormControl(null,[Validators.required,Validators.minLength(10),Validators.maxLength(30)]),
+ html:
+ <div class="alert alert-danger" *ngIf="f['firstName'].errors?.['required']">Fullname is required</div>
+                <div class="alert alert-danger" *ngIf="f['firstName'].errors?.['minlength']">minlength should be 10</div>
+                <div class="alert alert-danger" *ngIf="f['firstName'].errors?.['maxlength']">maxlength should be 30</div>
+==============================================================================================================================				
+pattern validation:
+  password:new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z0-9]{5,20}')])
+   <div class="form-group">
+          <label for="exampleInputEmail1">Password</label>
+          <input type="password"  formControlName="password"   class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter password">
+          <div class="alert alert-danger" *ngIf="f['password'].errors?.['required']">password is required</div>
+          <div class="alert alert-danger" *ngIf="f['password'].errors?.['pattern']">No special symbol and minimum 5</div>
+        </div>
+=========================================================================================================================		
+Component Communication:
+export class AddExpenseComponent implements OnInit {
+
+  public errorFlag:boolean = false;
+  public bikeName:string='';
+  public favourite:string='';
+  public external:string='';
+  public amount:number=0;
+  public paidBy:string='';
+  public date:any='';
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  onAdd(event:any){
+    
+  }
+
+}
+
+======================================================================================
+@output Decorator:
+import { Component, OnInit,Output,EventEmitter } from '@angular/core';
+  @Output() editClick = new EventEmitter();
+  onAdd(event:any){
+    let obj = {bikeName:this.bikeName,favourite:this.favourite,external:this.external,amount:this.amount,paidBy:this.paidBy,date:this.date};
+    console.log(obj);
+    this.editClick.emit(obj);
+  }
+  

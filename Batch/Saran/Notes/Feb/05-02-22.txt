@@ -1,0 +1,54 @@
+Reactive Form:
+1.Add one method inside the component:
+Example:
+   onSubmitHandler(){
+     
+   }
+2.Add FormGroup and ngSubmit inside the form tag
+  <form class="form" [formGroup]="registerForm"  (ngSubmit)="onSubmitHandler()" >
+  </form>
+
+3.Each input tag should be bind with formControlName
+Example:
+ <input
+          type="password"
+          formControlName="password2"
+          placeholder="Confirm Password"
+          name="password2"
+        />  
+4.Accessing the value:
+   onSubmitHandler(){
+     console.log(this.registerForm.value);
+     if(this.registerForm.value.password !=this.registerForm.value.password2){
+       alert("password not match");
+       return;
+     }
+   }		
+5.setValue
+  -->we can set the value for the data in the form
+ this.registerForm.setValue({
+         fullName:this.registerForm.value.fullName,
+         email:this.registerForm.value.email,
+         password:'',
+         password2:''
+       });
+6.patchValue
+  -->to set particular value	   
+       this.registerForm.patchValue({
+         password:'',
+         password2:''
+       });	   
+7.To reset all the data
+this.registerForm.reset();
+8.reset with initialize the value:
+ this.registerForm.reset({
+       email:"salman@gmail.com"
+     });
+	 
+9.subscribe method to access each value
+  ngOnInit(): void {
+    this.registerForm.valueChanges.subscribe((obj)=>{
+     console.log(obj.fullName);
+    })
+  }	 
+==========================================	   

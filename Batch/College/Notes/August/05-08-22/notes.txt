@@ -1,0 +1,20 @@
+We are displaying the information to the user by using following tags:
+1.h1,h2,h3,h4,h5,h6
+2.img 
+3.<a>
+4.table 
+5.li 
+===============================================
+To get the information from the user we need to use 
+form tag.
+validation:
+1.required
+2.minlength
+3.maxlength
+4.min 
+5.max 
+6.email 
+==================================
+
+
+

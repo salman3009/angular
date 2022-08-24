@@ -1,0 +1,255 @@
+Arithmetic operator:
+<script>
+a = 2;
+b = 4;
+let addition = a + b;
+let subtraction = a - b;
+let multiplication = a*b;
+let division = a/b;
+let module = b%a;
+  console.log(addition,subtraction,multiplication,division,module);
+
+</script>
+=============================================================
+increment operator:
+<script>
+let a = 1;
+//a = a+1;
+a++;
+console.log(a);
+a--;
+a--;
+console.log(a);
+
+</script>
+===========================================================
+comparison operator:
+<script>
+let a = 1;
+let b = 1;
+let result = a==b;
+console.log(result);
+
+</script>
+
+<script>
+let a = 1;
+let b = '1';
+let result = (a===b);
+console.log(result);
+
+</script>
+
+=  assignment operator
+== comparing only value and return type boolean
+=== comparing both value and data type and return type boolean 
+
+<script>
+let a = 1;
+let b = 1;
+let result = (a>=b);
+console.log(result);
+
+</script>
+>
+>=
+< 
+<=
+
+
+<script>
+let a = 1;
+let b = 1;
+let result = (a!=b);
+console.log(result);
+
+</script>
+==================================================
+logical operator:
+<script>
+let a = 1;
+let b = 1;
+let result = (a>=b) && (a==b);
+console.log(result);
+
+</script>
+
+<script>
+let a = 7;
+let b = 5;
+let result = ((a>=b) || (a==b));
+console.log(result);
+
+</script>
+
+<script>
+let a = 7;
+let b = 5;
+let result = !(a>=b);
+console.log(result);
+
+</script
+====================================================
+<script>
+let a = 7;
+let b = '5';
+let result =  a + b;
+console.log(result);
+</script>
+===============================
+ternary operator:
+<script>
+let a = 2;
+let b = 4;
+let result = (a>b) ? "a value is greater" : "b value is greater";
+console.log(result);
+</script>
+
+<script>
+let a = 2;
+let b = 4;
+let result = (a>b) ? "a value is greater" : "b value is greater";
+console.log('the value\'s is'+result);
+</script>
+
+set of statement will not be executed:
+<script>
+let age = 11;
+if(false){
+  console.log("you are eligible for vote");
+}
+if(0){
+  console.log("you are eligible for vote");
+}
+if(''){
+  console.log("you are eligible for vote");
+}
+if(null){
+  console.log("you are eligible for vote");
+}
+if(undefined){
+  console.log("you are eligible for vote");
+}
+if(2*"a"){
+  console.log("you are eligible for vote");
+}
+</script>
+
+<script>
+let age = 11;
+if(false){
+  console.log("you are eligible for vote");
+}
+else{
+  document.write("condition is false");
+}
+</script>
+
+else if ladder:
+<script>
+let age = 89;
+if(age>=18 && age<=59){
+  document.write("you are eligible for vote");
+}
+else if(age>=60){
+  document.write("you are senior citizen");
+}else
+{
+  document.write("no match found");
+}
+</script>
+
+<script>
+  let age = 1;
+  switch(age){
+    case 1:{
+      document.write("you are eligible for vote");
+      break;
+    }
+    case 2:{
+      document.write("you are senior citizen");
+      break;
+    }
+    default:{
+      document.write("no match found");
+    }
+
+  }
+  </script>
+  
+===========================================================
+<script>
+  var details =[1,2,3,4,5];
+  console.table(details);
+</script>
+<script>
+  const details =[1,2,3,4,5];
+  console.table(details);
+
+  const stringType = ["salman","rajesh","harry"];
+  console.table(stringType);
+
+  const booleanType=[true,false,false,true];
+  console.table(booleanType);
+
+  const mixedType=["salman",true,22];
+  console.table(mixedType);
+</script>
+==========================================================
+<script>
+  const details =[1,2,3,4,5];
+  console.log(details[2]);
+  console.log(details[1]);
+  console.log(details.length);
+  console.log(details[details.length-1]);
+</script>
+
+<script>
+  const details =[1,2,3,4,5];
+  console.log(details[2]);
+  console.log(details[1]);
+  console.log(details.length);
+  console.log(details[details.length-1]);
+  details.push(67);
+  console.log(details);
+  details.unshift(33);
+  console.log(details);
+</script>
+
+<script>
+  const details =[1,2,3,4,5];
+  details.push(67);
+  console.log(details);
+  details.unshift(33);
+  console.log(details);
+  details.pop();
+  details.pop();
+  console.log(details);
+  details.shift();
+  console.log(details);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

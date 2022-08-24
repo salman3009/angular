@@ -1,0 +1,42 @@
+1.Reactive Form - FormBuilder validation:
+2.Add the get method to validate the error in html:
+Example:register.component.ts:
+ get f() { return this.registerForm.controls; }
+3.Adding validation in html:
+Example:
+register.component.html:
+        <div *ngIf="f.fullName.errors?.required" class="alert alert-danger">
+          FullName cannot be empty
+        </div> 
+4.Adding minLength validation:
+Example:
+register.component.ts:
+     fullName:['',[Validators.required,Validators.minLength(6)]],		
+regiser.component.html:
+    <div *ngIf="f.fullName.errors?.minlength" class="alert alert-danger">
+          minlength is 6 
+        </div>
+		
+5.pattern validation:
+   1. Declare a variable to store the pattern 
+       public passwordPattern:string='';   
+	   this.passwordPattern='[0-9a-zA-Z]{6,12}';	
+   2. declaring in formBuilder:
+        password:['',[Validators.pattern(this.passwordPattern),Validators.required]],
+   3. html:
+    <div *ngIf="f.password.errors?.pattern" class="alert alert-danger">
+          only number and alphabets
+        </div>
+
+===============================================================================
+Frontend ------------  Backend --------------- Database Oracle,sql,Mongodb
+Html                    Java                     json
+css                     .Net
+javascript              Nodejs
+Angular                 fakeJson
+		
+		
+		   json                       json 
+Frontend ------------------ Backend -------------- Database 
+===========================================================================
+		

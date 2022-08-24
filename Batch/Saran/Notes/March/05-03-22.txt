@@ -1,0 +1,17 @@
+life cycle hooks:
+export class ListComponent implements OnInit, OnChanges{
+
+  constructor() { 
+          alert("constructor");
+  }
+
+  ngOnChanges():void {
+          alert("ngOnChanges");
+  }
+
+  ngOnInit(): void {
+    alert("ngOnINit");
+
+  }
+ } 
+=============================================  

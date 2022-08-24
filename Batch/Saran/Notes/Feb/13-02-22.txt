@@ -1,0 +1,67 @@
+postman: It is a tool to check the api response:
+method:GET
+URL: http://localhost:3000/posts
+==================================
+method:post
+URL: http://localhost:3000/posts
+payload:
+{
+
+    "name":"imran",
+    "price":2000
+}
+=================================
+method:DELETE
+URL: http://localhost:3000/posts/4
+=================================
+method:patch
+URL: http://localhost:3000/posts/3
+payload:
+{
+
+    "name":"vivek",
+    "price":2000
+}
+=================================
+For api call:
+1.import the http module:
+example:
+import {HttpClientModule} from '@angular/common/http';
+2.impor the httpclient
+3.  getDevelopers(){
+    return this.http.get('http://localhost:3000/profile');
+  }
+4.Go to developer.component.ts:
+import {GlobalService} from '../global.service';
+  constructor(public global:GlobalService) { }
+
+==============================================
+"list":[
+      {
+        "name":"salman",
+        "occupation":"microsoft developer",
+        "location":"chennai",
+        "skills":["c","c++","java"]
+      },
+      {
+        "name":"saran",
+        "occupation":"Google developer",
+        "location":"Delhi",
+        "skills":["c","Angular","java"]
+      },
+      {
+        "name":"potter",
+        "occupation":"CTS developer",
+        "location":"Bangalore",
+        "skills":["c","Reactjs","Java","Angular","Vuejs"]
+      }
+    ]
+=============================================
+Generics:
+  getDevelopers(){
+    return this.http.get<{list:any}>('http://localhost:3000/profile');
+  }
+=================================================================
+
+
+  

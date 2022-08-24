@@ -1,0 +1,184 @@
+Creating an new component:
+cmd:ng g  component header
+cmd:ng g  c section 
+2.header.component.html:
+<nav class="navbar bg-dark">
+  <h1>
+    <a href="index.html"><i class="fas fa-code"></i> DeveloperConnect</a>
+  </h1>
+  <ul>
+    <li><a href="profiles.html">Developers</a></li>
+    <li><a href="register.html">Register</a></li>
+    <li><a href="login.html">Login</a></li>
+  </ul>
+</nav>
+3.section.component.html 
+
+<section class="landing">
+  <div class="dark-overlay">
+    <div class="landing-inner">
+      <h1 class="x-large">Developer Connector</h1>
+      <p class="lead">
+        Create a developer profile/portfolio, share posts and get help from
+        other developers
+      </p>
+      <div class="buttons">
+        <a href="register.html" class="btn btn-primary">Sign Up</a>
+        <a href="login.html" class="btn btn-light">Login</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+4.showing display while adding in app.component.html
+<app-header></app-header>
+<app-section></app-section>
+
+5.To change the initial url name or if you want to append the name:
+index.html:
+<base href="/index">
+
+
+6.initialize the route in app.routing.module.ts
+Example:
+import { SectionComponent } from './section/section.component';
+
+const routes: Routes = [
+{
+  path:'',component:SectionComponent
+}
+];
+
+8:path and component are built in keyword available inside the Routes
+
+
+9.add router-outlet in app.component.html from there routing will start:
+<router-outlet></router-outlet>
+
+10.ng g c login and ng g c register
+
+11.login.component.html:
+<section class="container">
+      <div class="alert alert-danger">
+        Invalid credentials
+      </div>
+      <h1 class="large text-primary">Sign In</h1>
+      <p class="lead"><i class="fas fa-user"></i> Sign into Your Account</p>
+      <form class="form" action="dashboard.html">
+        <div class="form-group">
+          <input
+            type="email"
+            placeholder="Email Address"
+            name="email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+          />
+        </div>
+        <input type="submit" class="btn btn-primary" value="Login" />
+      </form>
+      <p class="my-1">
+        Don't have an account? <a href="register.html">Sign Up</a>
+      </p>
+    </section>
+
+12.register.component.html 
+ <section class="container">
+      <h1 class="large text-primary">Sign Up</h1>
+      <p class="lead"><i class="fas fa-user"></i> Create Your Account</p>
+      <form class="form" action="create-profile.html">
+        <div class="form-group">
+          <input type="text" placeholder="Name" name="name" required />
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Email Address" name="email" />
+          <small class="form-text"
+            >This site uses Gravatar so if you want a profile image, use a
+            Gravatar email</small
+          >
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            minLength="6"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            name="password2"
+            minLength="6"
+          />
+        </div>
+        <input type="submit" class="btn btn-primary" value="Register" />
+      </form>
+      <p class="my-1">
+        Already have an account? <a href="login.html">Sign In</a>
+      </p>
+    </section>	
+	
+13.app.routing.module.ts
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
+const routes: Routes = [
+{
+  path:'',component:SectionComponent
+},
+{
+  path:'login',component:LoginComponent
+},
+{
+  path:'register',component:RegisterComponent
+}
+];
+
+
+14.navigating with anchor tab:
+ <ul>
+      <li><a href="profiles.html">Developers</a></li>
+      <li><a routerLink="/register">Register</a></li>
+      <li><a routerLink="/login">Login</a></li>
+    </ul>
+
+=========================================================================
+Two types of form validation given by angular:
+1.template driven
+(i)validation is written in html 
+(ii)unit testing is not possible in html 
+(iii)suitable for simple form 
+2.reactive form 
+(i)validation is written in js
+(ii)unit testing is possible
+(iii)Suitable for both simple and complex form
+==============================================================
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

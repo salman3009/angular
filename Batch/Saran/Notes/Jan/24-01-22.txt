@@ -1,0 +1,79 @@
+Form:
+1.Remove the action attribute from the form tag
+2. id and name attribute will need to provide properly
+========================================================
+Variable declaration:
+1.It should consists of access modify with public keyword
+2.variable name should start with small letter
+3.data type is mandatory
+4.assigning default value is mandatory:
+syntax:
+public product:string="sony";
+=======================================================
+Interpolation Binding:
+1.binding from typescript to html
+ <div>{{product}}</div>
+ <div>{{"salman is here"}}</div>
+ <div>{{2+5}}</div>
+  <div>{{product=='sony'?true:false}}</div>
+  <div>{{product=='sony' && true}}</div>
+=========================================================
+Two way Binding:
+1.Binding from ts to html
+2.Bidning from html to ts
+3.we need to import one module
+syntax:
+app.module.ts
+import { FormsModule } from '@angular/forms';
+  imports: [
+    FormsModule
+  ]
+4.Two way binding:
+syntax:
+[(ngModel)]="dyanmicVariable"
+5.we need to declare variable for two way binding:
+syntax:
+   public product:string="";
+   public price:number=0;
+   public offer:string="10";
+6.binding from ts to html
+ <input type="text" [(ngModel)]="product" id="productName" name="productName" placeholder="Your product name..">
+==================================================================
+3.Event Binding:
+1.call a event on click method or change method
+2.we have a write a method inside the class
+syntax:
+   onSubmitHandler(){
+     alert("hello");
+   }
+3.app.component.html
+ <input  (click)="onSubmitHandler()" type="submit" value="Submit">
+============================================================== 
+Validation check:
+
+   onSubmitHandler(){
+     let result =(this.validationCheck(this.product) && this.validationCheck(this.price) && this.validationCheck(this.offer));
+     if(result){
+       alert("success");
+     }else{
+       alert("failure");
+     }
+
+   }
+
+   validationCheck(input:any):boolean{
+    if(input =='' || input ==null || input==undefined ){
+      return false;
+    }
+    return true;
+   }
+===================================================================
+property Binding   
+1.Binding any html attribute to make it dynamice:
+2.Declare a variable inside the ts:
+public id:number=22;
+ <input type="number" [(ngModel)]="price" [id]="id" name="price" placeholder="Your price..">
+=========================================================================	  
+
+ 
+   

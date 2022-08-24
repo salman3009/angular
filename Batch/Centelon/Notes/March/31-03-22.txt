@@ -1,0 +1,224 @@
+Steps to push the data inside the array:
+dashboard.component.ts:
+  public listofExpense:any[]=[];
+  
+  onAdd(event:any){
+    event.preventDefault();
+    this.tableFlag = true;
+    this.listofExpense.push({
+      bikeName:this.bikeName,
+      favourite:this.favourite,
+      external:this.external,
+      amount:this.amount,
+      paidBy:this.paidBy,
+      date:new Date()
+    });
+  }
+
+dashboard.component.html
+ <tr *ngFor="let obj of listofExpense">
+                    <th scope="row">1</th>
+                    <td>{{obj.bikeName}}</td>
+                    <td>{{obj.favourite}}</td>
+                    <td>{{obj.external}}</td>
+                    <td>{{obj.amount}}</td>
+                    <td>{{obj.paidBy}}</td>
+                    <td>{{obj.date}}</td>
+                    <td><i class="fa fa-pencil-square-o" aria-hidden="true"></i></td>
+                    <td><i (click)="onClearHandler()" class="fa fa-trash" aria-hidden="true"></i></td>
+                  </tr>
+==========================================================================
+To clear the data:
+  onAdd(event:any){
+    event.preventDefault();
+    this.tableFlag = true;
+    this.listofExpense.push({
+      bikeName:this.bikeName,
+      favourite:this.favourite,
+      external:this.external,
+      amount:this.amount,
+      paidBy:this.paidBy,
+      date:new Date()
+    });
+    this.onClearHandler();
+  }
+===========================================================
+Showing error:
+dashboard.component.ts 
+  public errorFlag:boolean = false;
+    onAdd(event:any){
+    event.preventDefault();
+    if(this.bikeName && this.favourite && this.external && this.amount && this.paidBy){
+      this.listofExpense.push({
+        bikeName:this.bikeName,
+        favourite:this.favourite,
+        external:this.external,
+        amount:this.amount,
+        paidBy:this.paidBy,
+        date:new Date()
+      });
+      this.onClearHandler();
+      this.tableFlag = true;
+      this.errorFlag = false;
+      return;
+    }
+    this.errorFlag= true;
+  }
+                  <div *ngIf="errorFlag" class="alert alert-danger" role="alert">
+                  Please enter the value!!
+                </div>
+  ========================================================================================
+  Delete Modal:
+  <!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Expense Delete</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h3>Are you sure to delete this details?</h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <td><i  data-toggle="modal" data-target="#deleteModal" (click)="onClearHandler()" class="fa fa-trash" aria-hidden="true"></i></td>
+ ====================================================================================================================
+ Deleting the data:
+   public index:number = -1;
+   
+  onDeleteHandler(i:any){
+      this.index = i;
+  }
+
+  onFinalDeleteHandler(){
+    this.listofExpense.splice(this.index,1);
+    this.index = -1;
+  }
+
+  <td><i  data-toggle="modal" data-target="#deleteModal" (click)="onDeleteHandler(i)" class="fa fa-trash" aria-hidden="true"></i></td>
+     <button type="button" (click)="onFinalDeleteHandler()" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+======================================================================================================================================	 
+Edit method:
+  onEditHandler(i:any){
+    this.index = i;
+    this.bikeName = this.listofExpense[i].bikeName;
+    this.favourite = this.listofExpense[i].favourite;
+    this.external = this.listofExpense[i].external;
+    this.amount = this.listofExpense[i].amount;
+    this.paidBy = this.listofExpense[i].paidBy;
+    this.date = this.listofExpense[i].date;
+  }
+
+  onFinalEditHandler(){
+   this.listofExpense[this.index].bikeName = this.bikeName;
+   this.listofExpense[this.index].favourite = this.favourite;
+   this.listofExpense[this.index].external = this.external;
+   this.listofExpense[this.index].amount = this.amount;
+   this.listofExpense[this.index].paidBy = this.paidBy;
+   this.listofExpense[this.index].date = this.date;
+   this.onClearHandler();
+  }
+  
+  <!-- Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Expense Edit</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group row">
+            <label  class="col-sm-5 col-form-label">Expense Title</label>
+            <div class="col-sm-7">
+              <input type="text" [(ngModel)]="bikeName" name="bikeName" class="form-control" id="expenseTitle">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-5 col-form-label">Expense Notes</label>
+            <div class="col-sm-7">
+              <input type="text" [(ngModel)]="favourite" name="favourite" class="form-control" id="expenseNotes">
+            </div>
+          </div>
+          <div class="form-group row">
+              <label class="col-sm-5 col-form-label">Expense Category</label>
+              <div class="col-sm-7">
+                  <select [(ngModel)]="external" name="external" class="form-control" id="exampleFormControlSelect1">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+              </div>
+          </div>
+              <div class="form-group row">
+                  <label class="col-sm-5 col-form-label">Expense Amount</label>
+                  <div class="col-sm-7">
+                    <input type="text" [(ngModel)]="amount" name="amount" class="form-control" id="expenseNotes">
+                  </div>
+                </div> 
+           
+            <div class="form-group row">
+              <label class="col-sm-5 col-form-label">Paid by</label>
+              <div class="col-sm-7">
+                  <select [(ngModel)]="paidBy" name="paidBy" class="form-control" id="paidBy">
+                      <option value="salman">Salman</option>
+                      <option value="rajes">Rajesh</option>
+                      <option value="andrew">Andrew</option>
+                      <option value="mohan">Mohan</option>
+                      <option value="preethi">Preethi</option>
+                    </select>
+              </div>
+              </div>
+              <div class="form-group row">
+                  <label class="col-sm-5 col-form-label">Expense Date</label>
+                  <div class="col-sm-7">
+                    <input type="text" [(ngModel)]="date" name="date" class="form-control" id="expenseDate">
+                  </div>
+                </div> 
+                <div class="btn-button">
+                  <button   type="submit" (click)="onAdd($event)"class="btn btn-primary">Add</button>
+                </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" (click)="onFinalEditHandler()" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+=============================================================================================================
+   <td [ngStyle]="{'color':obj.external==1?'red':'green'}">{{obj.external}}</td>
+      <td [ngClass]="obj.bikeName=='salman'?'bikeClass':''">{{obj.bikeName}}</td>
+=====================================================================================================================
+internal route:
+ <button type="submit" (click)="onSubmitHandler($event)" class="btn btn-primary">Submit</button>
+ts:
+import {Router} from '@angular/router';
+export class RegisterFormComponent implements OnInit {
+
+  constructor(public router:Router) { }
+
+  ngOnInit(): void {
+  }
+
+  onSubmitHandler(event:any){
+    event.preventDefault();
+    this.router.navigateByUrl('/dashboard');
+
+  }
+
+}
+============================================================================= 

@@ -1,0 +1,25 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        First Number:<input type="text" id="inputOne">
+        <br/>
+        <br/>
+        Second Number:<input type="text" id="inputTwo">
+        <br/>
+        <br/>
+        <button onclick="addition()">Addition</button>
+        <br/>
+        <div id="demo"></div>
+        <script>
+            function addition(){
+                let a = document.getElementById("inputOne").value;
+                let b = document.getElementById("inputTwo").value;
+                let result = parseInt(a) + parseInt(b);
+                document.getElementById("demo").innerHTML = result;
+            }
+
+        </script>
+    </body>
+</html>

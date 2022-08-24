@@ -1,0 +1,30 @@
+Need to show date in angular:
+1.if you want to show today's date:
+let date = new Date();
+ts:
+ public date:Date=new Date();
+2.constructor is use to initialize the data:
+   constructor(){
+     console.log(this.date);
+   }
+================================================
+pipe:
+1.it is used to display the html content in different way to the user.
+     <th>{{'Product' | uppercase}}</th>
+	       <td>{{date | date}}</td>
+2.you can use different format to apply date:
+ <td>{{date | date:"shortDate"}}</td>
+=====================================================
+style Handling:
+1.There are two ways of handling style:
+  (i)inline style
+  (ii)class style
+(i)inline style:
+  <td [style.color]="obj.product=='salman'?'red':''">{{obj.product}} </td>  
+ngClass:
+.productData
+     background-color: #f2f2f2
+     color:  red  
+
+  <td [ngClass]="obj.price==10?'productData':''">{{obj.price}}</td>
+=============================================================================  

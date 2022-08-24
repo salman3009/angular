@@ -1,0 +1,15 @@
+ViewChild:
+1.we need to provide the reference name:
+ <app-list  #prj (deleteDetails)="deleteDeveloper($event)" [globalList]="list" [flag]="flag">
+      <div>Salman developer</div>
+    </app-list>
+
+2.Inside the developer.component.ts
+import { Component, OnInit,ViewChild } from '@angular/core';	
+import {ListComponent} from './list/list.component';
+
+  @ViewChild("prj") prj!:ListComponent;
+  getListDetails(){
+    this.prj.onDelete(2);
+  }
+=====================================================================  

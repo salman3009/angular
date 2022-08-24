@@ -1,0 +1,35 @@
+1.Create one new component inside the developer folder:
+cmd:ng g component list 
+2.list.component.html:
+<div class="profiles">
+    <div class="profile bg-light" *ngFor="let obj of list">
+      <img
+        class="round-img"
+        src="./img/download.png"
+        alt=""
+      />
+      <div>
+        <h2>{{obj.name}}</h2>
+        <p>{{obj.occupation}}</p>
+        <p>{{obj.location}}</p>
+        <a href="profile.html" class="btn btn-primary">View Profile</a>
+      </div>
+
+      <ul>
+        <li class="text-primary" *ngFor="let data of obj.skills">
+          <i class="fas fa-check"></i> {{data}}
+        </li>
+
+      </ul>
+    </div>
+
+
+  </div>
+3.list.component.ts
+ public list:any;
+ 
+4input property binding:
+    <app-list [globalList]="list"></app-list> 
+	
+5.ng g component form
+	

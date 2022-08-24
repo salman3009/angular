@@ -1,0 +1,178 @@
+//spread parameter for array
+let details:number[]=[22,33,44];
+let age:number[]=[33,44,44];
+let combine:number[]=[...details,...age];
+console.log(combine);
+===============================================
+//spread parameter for object
+let address:{doorNo:string,location:string}={
+   doorNo:'11',
+   location:'chennai'
+};
+
+let objAge:{data:number}={
+    data:22
+}
+
+let combineObj:{doorNo:string,location:string,data:number}={...address,...objAge};
+console.log(combineObj);
+==========================================================
+class Person{
+     public fullName:string;
+     private age:number;
+     constructor(fullName,age){
+         this.fullName=fullName;
+         this.age=age;
+     }
+      
+}
+
+const obj = new Person('salman',22);
+console.log(obj);
+const saranObj = new Person('saran',33);
+console.log(saranObj);
+===========================================================
+//for private variable you can declare a public method inside the class to access those variable
+//This concept is called encapsulation.
+class Person{
+     public fullName:string;
+     private age:number;
+     constructor(fullName,age){
+         this.fullName=fullName;
+         this.age=age;
+     }
+     public getAge(){
+         return this.age;
+     }
+
+     private getFullName(){
+         return this.fullName;
+     }
+      
+}
+
+const obj = new Person('salman',22);
+console.log(obj);
+const saranObj = new Person('saran',33);
+console.log(saranObj.fullName);
+//console.log(saranObj.age);
+console.log(saranObj.getAge());
+// console.log(saranObj.getFullName());
+==================================================
+inheritance: it is process to access the parent data into child
+class Person{
+     public fullName:string;
+     private age:number;
+     constructor(fullName,age){
+         this.fullName=fullName;
+         this.age=age;
+     }
+     public getAge(){
+         return this.age;
+     }
+
+     private getFullName(){
+         return this.fullName;
+     }
+      
+}
+
+class Company extends Person{
+
+      public salaryDetails:string;
+      public pf:number;
+      constructor(fullName,age,salaryDetails,pf){
+         super(fullName,age);
+         this.salaryDetails=salaryDetails;
+         this.pf=pf;
+      }
+
+}
+
+const obj = new Company('salman',23,'yes',22323);
+console.log(obj);
+console.log(obj.getAge());
+===================================================
+class Person{
+    fullName:string;
+    age:number;
+    constructor(fullName,age){
+        this.fullName=fullName;
+        this.age = age;
+    }
+}
+
+function service():Person[]{
+       return [new Person("salman",22),new Person("data",22)]
+}
+console.log(service());
+===================================================
+class Person{
+    fullName:string;
+    age:number;
+    constructor(fullName,age){
+        this.fullName=fullName;
+        this.age = age;
+    }
+}
+
+function service():Person[]{
+       return [new Person("salman",22),new Person("data",22)]
+}
+console.log(service());
+let details = service();
+console.log(details[0].fullName);
+==================================================================
+//interface is used to define the varibale and method of object or class
+//question mark will make it optional to have that particular type
+interface Employee{
+    fullName:string,
+    age:number,
+    lastName?:string,
+    getAge():number
+}
+
+let obj:Employee={
+    fullName:"salman",
+    age:22,
+    getAge:function(){
+         return this.age
+    }
+};
+====================================
+Generics:
+function arrayBuffer(T:any[]):any[]{
+   return T;
+}
+
+let result = arrayBuffer([22,33]);
+result.push("salman");
+console.log(result);
+
+function arrayNumber(T:number[]):number[]{
+    return T;
+}
+
+function arrayString(T:string[]):string[]{
+  return T;
+}
+
+function generic<T>(item:T[]):T[]{
+    return item;
+}
+
+let genericResult=generic([22,33]);
+// genericResult.push("sss");
+=============================================
+import and export approach
+hello.ts
+export function arrayBuffer(T:any[]):any[]{
+   return T;
+}
+index.ts
+import {arrayBuffer} from './hello';
+console.log(arrayBuffer([22,33]));
+cmd:tsc hello
+cmd:tsc index
+cmd:node index
+===========================================

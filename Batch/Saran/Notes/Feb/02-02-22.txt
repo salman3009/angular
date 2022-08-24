@@ -1,0 +1,58 @@
+Template Driven:
+1.import the formsModule in app.module.ts 
+app.module.ts:
+import {FormsModule} from '@angular/forms';
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule
+  ],
+  
+2.Bind the html with ngModel and reference name
+Example:
+<input
+          type="email"
+          placeholder="Email Address"
+          name="email"
+          ngModel
+          #email="ngModel"
+          required
+        />
+
+3.add "required" keyword to do required validation
+		
+4.Bind your form with ngForm
+    <form  #submitForm="ngForm" class="form">
+    </form>	
+
+5.write an ngSubmit to call an event after submit button and write a method inside the class and pass the reference name to the method:
+example:
+ <form  #submitForm="ngForm" (ngSubmit)="onSubmitHandler(submitForm)" class="form">
+ </form> 
+ 
+6.import the ngForm in the class and pass it to the method
+import { NgForm } from '@angular/forms';
+  onSubmitHandler(form:NgForm){
+
+  }
+  
+7.invalid attribute to check form is valid or not 
+  onSubmitHandler(form:NgForm){
+     if(form.invalid){
+       alert("form is invalid");
+       return;
+     }
+     alert("successfully submitted");
+  }
+
+  
+8.adding css validation:
+    <div *ngIf="password.invalid && password.errors?.required" class="alert alert-danger">
+          Password cannot be empty
+        </div>
+		
+	
+	
+	
+	
+	

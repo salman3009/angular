@@ -1,0 +1,251 @@
+Object:
+<script>
+ const person={
+   fullName: "salman",
+   age: 55,
+   location:"chennai",
+   phone: 9893433223,
+   jobStatus:true,
+   loan:null,
+   designation:undefined
+ };
+
+ console.log(person);
+ console.log(person.fullName);
+ console.log(person.phone);
+ console.log(person['jobStatus']);
+
+</script>
+===================================
+<script>
+ const person={
+   fullName: "salman",
+   age: 55,
+   location:"chennai",
+   phone: 9893433223,
+   jobStatus:true,
+   loan:null,
+   designation:undefined,
+   items:["biscuit","candy","ice-cream"],
+   address:{
+     street:12,
+     location:"Mumbai"
+   }
+ };
+
+ console.log(person);
+ console.log(person.fullName);
+ console.log(person.phone);
+ console.log(person['jobStatus']);
+ console.log(person.items);
+ console.log(person.items[1]);
+ console.log(person.location);
+ console.log(person.address.street);
+</script>
+===================================================
+writing method inside the object:
+<script>
+ const person={
+   fullName: "salman",
+   age: 55,
+   location:"chennai",
+   phone: 9893433223,
+   jobStatus:true,
+   loan:null,
+   designation:undefined,
+   items:["biscuit","candy","ice-cream"],
+   address:{
+     street:12,
+     location:"Mumbai"
+   },
+   getAgeDetails(){
+       console.log("hello age");
+       return this.age;
+   }
+ };
+
+ console.log(person);
+ console.log(person.fullName);
+ console.log(person.phone);
+ console.log(person['jobStatus']);
+ console.log(person.items);
+ console.log(person.items[1]);
+ console.log(person.location);
+ console.log(person.address.street);
+ console.log(person.getAgeDetails());
+</script>
+======================================================
+<script>
+ const person={
+   fullName: "salman",
+   age: 55,
+   location:"chennai",
+   phone: 9893433223,
+   jobStatus:true,
+   loan:null,
+   designation:undefined,
+   items:["biscuit","candy","ice-cream"],
+   address:{
+     street:12,
+     location:"Mumbai"
+   },
+   getAgeDetails(){
+       console.log("hello age");
+       return this.age;
+   }
+ };
+
+ for(let obj in person){
+   console.log("key "+obj+" value "+person[obj]);
+ }
+
+</script>
+======================================================
+<script>
+  "use strict";
+var y = 1;
+
+function add(a,a){
+
+}
+add();
+</script>
+=========================================================
+Hoisting:
+
+
+<script>
+console.log(x);
+var x =1;
+console.log(x);
+
+add();
+function add(){
+
+}
+</script>
+==========================================================
+Regex:
+
+<script>
+let pattern = /^[0-9]$/
+let result = pattern.test("a");
+console.log(result);
+</script>
+
+
+<script>
+  let pattern = /^[0-9]{2,10}$/
+  let result = pattern.test("33");
+  console.log(result);
+  </script>
+
+
+
+<script>
+  let pattern = /^[0-9]{2,10}[a-z]{2,10}$/
+  let result = pattern.test("22aaa");
+  console.log(result);
+  </script>
+
+
+<script>
+  let pattern = /^[0-9a-zA-Z]{5,10}$/
+  let result = pattern.test("22AAaaa");
+  console.log(result);
+  </script>
+
+
+<script>
+  let pattern = /^[0-9]?$/
+  let result = pattern.test("3");
+  console.log(result);
+  </script>
+
+<script>
+  let pattern = /^[0-9]*$/
+  let result = pattern.test("");
+  console.log(result);
+  </script>
+
+<script>
+  let pattern = /^[0-9]+$/
+  let result = pattern.test("22");
+  console.log(result);
+  </script>
+
+
+<script>
+  let pattern = /^.*$/
+  let result = pattern.test("a123232&*&*&*");
+  console.log(result);
+  </script>
+  
+
+<script>
+  let pattern = /^(salman|rajesh)$/
+  let result = pattern.test("salman");
+  console.log(result);
+  </script>
+
+
+<script>
+  let pattern = /^\-?[0-9]{0,}\.[0-9]{0,}?$/
+  let result = pattern.test("23.33");
+  console.log(result);
+  </script>
+  
+
+<script>
+  let pattern = /^\-?[0-9]{0,}\.?[0-9]{0,}$/
+  let result = pattern.test("23.33");
+  let result2 = pattern.test("23");
+  let result3 = pattern.test("-23");
+  console.log(result,result2,result3);
+  </script>
+
+<script>
+  let pattern = /^.+@.+\..+$/
+  let result = pattern.test("salman444");
+  console.log(result);
+  </script>
+========================================  
+check version of node:
+cmd:node -v 
+https://nodejs.org/download/release/v14.19.1/
+================================================
+open a new file: hello.js 
+var a = 20;
+console.log(a);
+cmd:node hello
+==================================================
+cmd:npm -v
+npm - node package manager 
+cmd:npm install -g typescript
+cmd:tsc -v 
+=================================================
+Running typescript:
+var a = 20;
+console.log(a);
+filename:variable.ts 
+=================================================
+let fullName:string = "salman";
+fullName = 33;
+let fullName:string = "salman";
+fullName = 33;
+
+let age:number = 45;
+let flag:boolean = true;
+
+let age:number = 45;
+let flag:boolean = true;
+let address:any = 33;
+address = "salman";
+
+Array type:
+let numberArray:number[]=[1,2,3];
+let stringArray:string[]=["a","b"];
+let booleanArray:boolean[]=[true,false];
+let anyArray:any[]=[1,true,"a"];
+===================================================
+===================================================

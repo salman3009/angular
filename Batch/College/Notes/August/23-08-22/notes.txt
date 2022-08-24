@@ -1,0 +1,19 @@
+Array: 
+Primitive datatypes:
+1.string
+2.number
+3.boolean
+4.undefined
+Non primitive datatypes:
+1.array
+2.object
+example:
+let firstName = "akash";
+let firstNameTwo = "suresh";
+let firstNamethree = "rajesh";
+//array will store the data continously.
+===========================================
+To insert the data - push 
+To remvoe the data - pop 
+========================================
+JSON - javascript object notation

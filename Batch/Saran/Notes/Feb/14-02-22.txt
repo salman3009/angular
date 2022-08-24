@@ -1,0 +1,73 @@
+Assignment:
+1.Three components
+2.text box should allow only number reactive form validation
+3.add u need to show in the list 
+4.create service class to update the list of array
+[
+{
+date:new Date(),
+amount:200,
+type:"add"
+
+}
+]
+5.balance logic u need to write it
+========================================
+Get method to bind the data in frontend:
+
+1.create a variable
+ public list:any[]=[];
+2.bind with api
+  ngOnInit(): void {
+   this.global.getDevelopers().subscribe((result)=>{
+     console.log(result.list);
+     this.list=result.list;
+   })
+  }
+
+
+3.developer component.html:
+<section class="container">
+    <h1 class="large text-primary">Developers</h1>
+    <p class="lead">
+      <i class="fab fa-connectdevelop"></i> Browse and connect with developers
+    </p>
+    <div class="profiles">
+      <div class="profile bg-light" *ngFor="let obj of list">
+        <img
+          class="round-img"
+          src="./img/download.png"
+          alt=""
+        />
+        <div>
+          <h2>{{obj.name}}</h2>
+          <p>{{obj.occupation}}</p>
+          <p>{{obj.location}}</p>
+          <a href="profile.html" class="btn btn-primary">View Profile</a>
+        </div>
+
+        <ul>
+          <li class="text-primary">
+            <i class="fas fa-check"></i> Reactjs
+          </li>
+          <li class="text-primary">
+            <i class="fas fa-check"></i> Angular
+          </li>
+          <li class="text-primary">
+            <i class="fas fa-check"></i> VueJs
+          </li>
+        </ul>
+      </div>
+
+
+    </div>
+  </section>  
+=============================================  
+Nested for:
+    <ul>
+          <li class="text-primary" *ngFor="let data of obj.skills">
+            <i class="fas fa-check"></i> {{data}}
+          </li>
+
+        </ul>
+=====================================================		

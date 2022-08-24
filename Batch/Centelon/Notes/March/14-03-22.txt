@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+div{
+    width:100px;
+    height: 200px;
+    margin-left:20px;
+    margin-top:20px;
+    background-color:red;
+    border:5px dotted green;
+}
+
+
+</style>
+
+<body>
+    <div>Welcome to programming</div>
+</body>
+</html> 
+============================================================
+Box modal:
+1.width*height
+2.padding
+3.border
+4.margin 
+=============================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+div{
+    width:100px;
+    height: 200px;
+    padding-left:50px;
+    background-color:red;
+    border: 10px solid green;
+    border-radius:18px;
+    margin: auto;
+    margin-top: 59px;
+}
+
+
+</style>
+
+<body>
+    <div>Welcome to programming</div>
+</body>
+</html> 
+======================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+#sub-heading{
+      font-size:23px;
+      font-weight: bold;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+</style>
+
+<body>
+    <p id="sub-heading">Hello world</p>
+</body>
+</html> 
+=======================================================================

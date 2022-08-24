@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body>
+ 
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col"><i data-toggle="modal" data-target="#exampleModal" class="fas fa-cloud"></i></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td><i data-toggle="modal" data-target="#exampleModal" class="fas fa-cloud"></i></td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td><i data-toggle="modal" data-target="#exampleModal" class="fas fa-cloud"></i></td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td><i data-toggle="modal" data-target="#exampleModal" class="fas fa-cloud"></i></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+=================================================================================
+HTMl + CSS + Javascript = Website
+Typescript ----------->Javascript === website 
+Javascript --> browser 
+2013 -- Nodejs -- you can run javascript outside the browser
+Sample.js 
+console.log("hello world");
+cmd:node sample.js 
+Nodejs + npm (node package manager) ---> repository
+Typescript --> download --> npm 
+Nodejs 14 to 16 
+npm > 6
+cmd:npm install -g typescript 
+cmd:tsc -v
+cmd:npm install -g typescript@4.0.2
+sample.ts 
+let age:number - 24;
+cmd:tsc sample.ts ----------------------> sample.js 
+==============================================================================================
+let age :number = 45;
+let fullName : string = "salman";
+let flag :boolean = true;
+let dynamic:any = 33;
+let numberDigit:any[]=[1,2,"salman"];
+let address:{street:string,location:string,pinCode:number}={
+    street: "mmk street",
+    location: "chennai",
+    pinCode: 65452
+};
+========================================================================
+function addition(a:number,b:number):number{
+    return a+b;
+}
+
+addition(22,22);
+======================================================
+let sumOfDigit:number = 452.22323232;
+sumOfDigit = Number(sumOfDigit.toFixed(2));
+console.log(sumOfDigit);
+=================================================
+function printHandler(fullName:string):void{
+    console.log(fullName);
+}
+printHandler("salman");
+//optional parameter:
+function printHandler(fullName?:string):void{
+    console.log(fullName);
+}
+printHandler("salman");
+printHandler();
+=====================================
+default parameter:
+function printHandler(fullName:string="akash"):void{
+    console.log(fullName);
+}
+printHandler("salman");
+printHandler();
+======================================
+const printHandler = function (age:number):number{
+      return age;
+}
+
+printHandler(22);
+============================================
+arrow function:
+const printHandler = (age:number):number=>{
+   return age;
+}
+
+printHandler(22);
+================================================
+template string:
+let skills:string = "javascript";
+let designation:string = "software engineer";
+
+let paragraph:string = "Welcome to " + skills + "and designation is " + designation;
+//template string
+let paragraphTemplate:string = `Welcome to ${skills} and designation is ${designation} ${4+4}`;
+console.log(paragraphTemplate);
+=======================================================
+class Employee{
+    fullName:string;
+    age:number;
+    address:boolean;
+
+    constructor(fullName:string,age:number,address:boolean){
+        this.fullName = fullName;
+        this.age = age;
+        this.address = address;
+    }
+}
+
+const salman = new Employee("salman",22,true);
+console.log(salman);
+
+const akash = new Employee("akash",32,false);
+console.log(akash);
+==========================================================
+class Employee{
+    fullName:string;
+    age:number;
+    address:boolean;
+
+    constructor(fullName:string,age:number,address:boolean){
+        this.fullName = fullName;
+        this.age = age;
+        this.address = address;
+    }
+
+    setAgeHandler(a:number):void{
+        this.age = a;
+    }
+
+    getAgeHandler():number{
+      return this.age;
+    }
+}
+
+const salman = new Employee("salman",22,true);
+console.log(salman);
+salman.setAgeHandler(100);
+console.log(salman.getAgeHandler());
+
+const akash = new Employee("akash",32,false);
+console.log(akash);
+=========================================================
+class Employee{
+    readonly empCode:number;
+    fullName:string;
+    age:number;
+    address:boolean;
+
+    constructor(fullName:string,age:number,address:boolean,empCode:number){
+        this.fullName = fullName;
+        this.age = age;
+        this.address = address;
+        this.empCode = empCode;
+    }
+
+    setAgeHandler(a:number):void{
+        this.age = a;
+    }
+
+    getAgeHandler():number{
+      return this.age;
+    }
+}
+
+const salman = new Employee("salman",22,true,33434);
+console.log(salman);
+salman.setAgeHandler(100);
+console.log(salman.getAgeHandler());
+
+===============================================================
+class Employee{
+    readonly empCode:number;
+    fullName:string;
+    age:number;
+    address:boolean;
+
+    constructor(fullName:string,age:number,address:boolean,empCode:number){
+        this.fullName = fullName;
+        this.age = age;
+        this.address = address;
+        this.empCode = empCode;
+    }
+
+    setAgeHandler(a:number):void{
+        this.age = a;
+    }
+
+    getAgeHandler():number{
+      return this.age;
+    }
+}
+
+
+class FoodCard extends Employee{
+
+    cardNumber:number;
+    amount:number;
+    
+    constructor(fullName:string,age:number,address:boolean,empCode:number,cardNumber:number,amount:number){
+        super(fullName,age,address,empCode);
+        this.cardNumber = cardNumber;
+        this.amount = amount;
+    }
+
+}
+
+const foodCardDetails = new FoodCard("rajesj",56,true,4443,89834311,100);
+console.log(foodCardDetails);
+console.log(foodCardDetails.getAgeHandler());
+
+
+========================================================================
+class Employee{
+    private readonly empCode:number;
+    public fullName:string;
+    public age:number;
+    public address:boolean;
+
+    constructor(fullName:string,age:number,address:boolean,empCode:number){
+        this.fullName = fullName;
+        this.age = age;
+        this.address = address;
+        this.empCode = empCode;
+    }
+
+    protected setAgeHandler(a:number):void{
+        this.age = a;
+    }
+
+    getAgeHandler():number{
+      return this.age;
+    }
+}
+
+
+class FoodCard extends Employee{
+
+    public cardNumber:number;
+    amount:number;
+    
+    public constructor(fullName:string,age:number,address:boolean,empCode:number,cardNumber:number,amount:number){
+        super(fullName,age,address,empCode);
+        this.cardNumber = cardNumber;
+        this.amount = amount;
+    }
+    public getData(a){
+        super.setAgeHandler(a);
+    }
+
+}
+
+const foodCardDetails = new FoodCard("rajesj",56,true,4443,89834311,100);
+console.log(foodCardDetails);
+// console.log(foodCardDetails.empCode);
+console.log(foodCardDetails.getData(22));
+
+
+=======================================================================================
+
+class Formula{
+    public static PI:number = 3.14;
+    static getDetails():number{
+        return this.PI;
+    }
+
+}
+
+console.log(Formula.PI);
+console.log(Formula.getDetails());
+=====================================================================
+interface Person{
+    fullName:string;
+    age?:number;
+    addition:()=>number;
+}
+
+let salman:Person={
+        fullName:"salman",
+        age:22,
+        addition():number{
+         return this.age;
+        }
+}
+
+
+class Item implements Person{
+
+    fullName: string;
+    age:number;
+
+    constructor(fullName,age){
+        this.fullName = fullName;
+        this.age = age;
+    }
+    addition():number{
+        return this.age;
+    }
+}
+
+=========================================================
+hell.ts:
+export function addition(a:number,b:number):number{
+    return a+b;
+}
+
+global.ts:
+import { addition } from "./hello";
+console.log(addition(2,3));
+
+===================================================
+export function addition(a:number,b:number):number{
+    return a+b;
+}
+
+
+export function subtraction(a:number,b:number):number{
+    return a-b;
+}
+
+import { addition , subtraction } from "./hello";
+console.log(addition(2,3));
+console.log(subtraction(4,2));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

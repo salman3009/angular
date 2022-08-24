@@ -1,0 +1,305 @@
+Binding from typescript to html ---> {{}}  -------> interpolation binding 
+==========================================================
+dashboard.component .html 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h1>{{header}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-7">
+            <form>
+                <div class="form-group row">
+                  <label  class="col-sm-5 col-form-label">Expense Date</label>
+                  <div class="col-sm-7">
+                    <input type="text" class="form-control" id="expenseDate">
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"></label>
+                    <div class="col-sm-7">
+                        <div class="btn-button">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                          </div>
+                    </div>
+                   
+                  </div>
+
+         
+              </form>
+        </div>
+        <div class="col-5"></div>
+    </div>
+    <br/>
+    <br/>
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Expense Name</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">Expense Category</th>
+                    <th scope="col">Expense Amount</th>
+                    <th scope="col">Paid By</th>
+                    <th scope="col">Expense Date</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Bike</td>
+                    <td>My favourite</td>
+                    <td>external</td>
+                    <td>80000</td>
+                    <td>salman</td>
+                    <td>29/03/2022</td>
+                    <td><i class="fa fa-pencil-square-o" aria-hidden="true"></i></td>
+                    <td><i class="fa fa-trash" aria-hidden="true"></i></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Bike</td>
+                    <td>My favourite</td>
+                    <td>external</td>
+                    <td>80000</td>
+                    <td>salman</td>
+                    <td>29/03/2022</td>
+                    <td><i class="fa fa-pencil-square-o" aria-hidden="true"></i></td>
+                    <td><i class="fa fa-trash" aria-hidden="true"></i></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Bike</td>
+                    <td>My favourite</td>
+                    <td>external</td>
+                    <td>80000</td>
+                    <td>salman</td>
+                    <td>29/03/2022</td>
+                    <td><i class="fa fa-pencil-square-o" aria-hidden="true"></i></td>
+                    <td><i class="fa fa-trash" aria-hidden="true"></i></td>
+                  </tr>
+                </tbody>
+              </table>
+             
+        </div>
+    </div>
+</div>
+
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
+})
+export class DashboardComponent implements OnInit {
+
+  public header:string='';
+  constructor() { 
+    this.header = "Search Expense Details";
+  }
+
+  ngOnInit(): void {
+  }
+
+}
+==========================================================
+    <div class="row">
+      <div class="col-12">
+          <h1>{{'Table'+header}}</h1>
+          <h1>{{3+3}}</h1>
+          <h1>{{3>5?"yes":'No'}}</h1>
+          <h1>{{2-2}}</h1>
+      </div>
+  </div>
+============================================================
+ts:
+   getTime(){
+    return new Date();
+  }
+ <div class="col-12">
+          <h1>{{'Table'+header}}</h1>
+          <h1>{{3+3}}</h1>
+          <h1>{{3>5?"yes":'No'}}</h1>
+          <h1>{{2-2}}</h1>
+          <h1>{{getTime()}}</h1>
+      </div>
+====================================================
+ts:
+  public disableFlag:boolean = true;
+  public buttonId:string = "buttonSubmit";
+html:
+                <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"></label>
+                    <div class="col-sm-7">
+                        <div class="btn-button">
+                            <button type="submit" [id]="buttonId" class="btn btn-primary" [disabled]="disableFlag">Submit</button>
+                          </div>
+                    </div>
+                   
+                  </div>
+===========================================================================				  
+ts:
+  onChangeHandler(){
+    this.disableFlag = false;
+  }
+        <div class="col-sm-7">
+                    <input type="text" class="form-control" id="expenseDate" (change)="onChangeHandler()">
+                  </div>
+======================================================================================
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h1>{{header}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-7">
+            <form>
+                <div class="form-group row">
+                  <label  class="col-sm-5 col-form-label">Expense Date</label>
+                  <div class="col-sm-7">
+                    <input type="text" class="form-control" id="expenseDate" (change)="onChangeHandler()">
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"></label>
+                    <div class="col-sm-7">
+                        <div class="btn-button">
+                            <button  (click)="onSubmitHandler($event)" type="submit" [id]="buttonId" class="btn btn-primary" [disabled]="disableFlag">Submit</button>
+                          </div>
+                    </div>
+                   
+                  </div>
+
+         
+              </form>
+        </div>
+        <div class="col-5"></div>
+    </div>
+    <br/>
+    <br/>
+    <div class="row">
+      <div class="col-12">
+          <h1>{{'Table'+header}}</h1>
+          <h1>{{3+3}}</h1>
+          <h1>{{3>5?"yes":'No'}}</h1>
+          <h1>{{2-2}}</h1>
+          <h1>{{getTime()}}</h1>
+      </div>
+  </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Expense Name</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">Expense Category</th>
+                    <th scope="col">Expense Amount</th>
+                    <th scope="col">Paid By</th>
+                    <th scope="col">Expense Date</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>{{bikeName}}</td>
+                    <td>{{favourite}}</td>
+                    <td>{{external}}</td>
+                    <td>{{amount}}</td>
+                    <td>{{paidBy}}</td>
+                    <td>{{date}}</td>
+                    <td><i class="fa fa-pencil-square-o" aria-hidden="true"></i></td>
+                    <td><i class="fa fa-trash" aria-hidden="true"></i></td>
+                  </tr>
+                 
+                </tbody>
+              </table>
+             
+        </div>
+    </div>
+</div>
+
+dashboard.component.ts 
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
+})
+export class DashboardComponent implements OnInit {
+
+  public header:string='';
+  public disableFlag:boolean = true;
+  public buttonId:string = "buttonSubmit";
+  public bikeName:string='';
+  public favourite:string='';
+  public external:string='';
+  public amount:number=0;
+  public paidBy:string='';
+  public date:any= '';
+
+
+  constructor() { 
+    this.header = "Search Expense Details";
+  }
+
+  ngOnInit(): void {
+  }
+
+   getTime(){
+    return new Date();
+  }
+
+  onChangeHandler(){
+    this.disableFlag = false;
+  }
+
+  onSubmitHandler(event:any){
+    event.preventDefault();
+    this.bikeName="pulsar";
+    this.favourite="yes my";
+    this.external = "no";
+    this.amount = 90000;
+    this.paidBy="salman";
+    this.date = new Date();
+  }
+
+}
+======================================================================
+   <td><i (click)="onClearHandler()" class="fa fa-trash" aria-hidden="true"></i></td>
+  onClearHandler(){
+    this.bikeName="";
+    this.favourite="";
+    this.external = "";
+    this.amount = 0;
+    this.paidBy="";
+    this.date = "";
+  }
+===========================================================================
+1.To do two way binding:
+app.module.ts 
+import { FormsModule } from '@angular/forms';
+  imports: [
+    FormsModule,
+    BrowserModule,
+    AppRoutingModule
+  ],  
+==========================================
+Assignment notes:
+1.Add ngModel in your project in signup page 
+2.Make button disable using property binding 
+3.Display your header using interpolation 
+4.after typing text enable the button using click event 
+=====================================================  

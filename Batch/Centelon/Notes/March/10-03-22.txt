@@ -1,0 +1,37 @@
+style attribute:
+ <h1 style="color:green">Form</h1>
+ =====================================
+ class attribute:
+   <form class="form-color">
+   </form>
+ =====================================
+ title attribute:
+ <h1 title="register" style="color:green">Form</h1>
+==================================================
+Form specific attribute:
+<input type="text" id="1" name="firstName" value="salman"/>
+ Password:<input type="password" id="3" name="password" maxlength="10"/>
+  Password:<input type="password" id="3" name="password" maxlength="10" required/>
+  Country:<select>
+      <option value="india">India</option>
+      <option value="usa" selected>USA</option>
+      <option value="canada">Canada</option>
+    </select>
+============================================================
+ <form class="form-color" action="https://google.com">
+============================================================
+Create a new page:
+page.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    welcome to our webiste
+</body>
+</html> 
+===============================================================
