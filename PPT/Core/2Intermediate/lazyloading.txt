@@ -1,0 +1,74 @@
+Creating lazy Loading:
+
+1.create the component
+//ng g component component-name
+2.create the module
+//ng generate module name --routing
+3.In app.js create the path
+//.when("/v2/exit/feedback/questions/create", {})
+4.Remove the component name from main module
+5.Setup the route
+//Go to exit-routing-module
+6.Add the module
+//Add your module in your component
+=====================================================================
+1.Create a new module name by giving following command:
+cmd:cd src/app
+2.creating a new module
+cmd:ng generate module name --routing
+3.creating a component inside the module
+cmd ng g component common-component --module=common-module.module.ts
+4.creating a service inside the module
+cmd:ng g service common-service
+5.Giving the component and routing navigation in the common.routing.module.
+Example:
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { GovtComponent } from './govt/govt.component';
+import { IntlComponent } from './intl/intl.component';
+import { IitComponent } from './iit/iit.component';
+
+const routes: Routes = [
+  {path: 'govt', component:GovtComponent},
+  {path: 'intl', component:IntlComponent},
+  {path: 'iit', component:IitComponent}
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class RoutingModule { }
+6.Giving the common-module attachment in the app-routing.module as loadchildren.
+Example:
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { JobsComponent } from './jobs/jobs.component';
+import { RecruitersComponent } from './recruiters/recruiters.component';
+import { SectionComponent } from './section/section.component';
+import { ServicesComponent } from './services/services.component';
+import { RegisterComponent } from './register/register.component';
+import { from } from 'rxjs';
+import {FinanceModule} from './finance/finance.module';
+const routes: Routes = [
+  {path: 'jobs', component:JobsComponent},
+  {path: 'recruiters', component:RecruitersComponent},
+  {path: '', component:SectionComponent},
+  {path: 'services', component:ServicesComponent},
+  {path: 'register', component:RegisterComponent},
+{ path: 'finance', loadChildren: () => import('./finance/finance.module').then(m => m.FinanceModule) },
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+step6:Go to navigation component. Given the routing path 
+Example:
+<ul><li class="nav-item">
+        <a class="nav-link" routerLink="/commonjobs/govt">Govtjobs</a>
+      </li>
+    </ul>
+==========================================================================
