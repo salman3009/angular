@@ -1,0 +1,27 @@
+<script>
+    let employee={
+        fullName:"akash",
+        age:33,
+        status:true,
+        list:[1,2,3,4],
+        address:{
+            doorNo:12,
+            location:"chennai"
+        },
+        flag :null
+    };
+    console.log(typeof employee);
+    console.log(employee.fullName);
+    let employeeToJSON = JSON.stringify(employee);
+    console.log(typeof employeeToJSON);
+    console.log(employeeToJSON.age);
+    employeeToJSON = JSON.parse(employeeToJSON);
+    console.log(typeof employeeToJSON);
+    console.log(employeeToJSON.age);
+    let details = [1,2,4,56];
+    console.log(typeof details , details[0]);
+    details = JSON.stringify(details);
+    console.log(typeof details, details[0]);
+    details = JSON.parse(details);
+    console.log(typeof details, details[0]);
+</script>
