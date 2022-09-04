@@ -1,0 +1,32 @@
+<!-- <script>
+    function getDisplayData(){
+        return new Promise((success,failure)=>{
+          setTimeout(()=>{
+                    success("yes");
+          },3000);
+        })
+    }
+    getDisplayData().then((response)=>{
+            console.log(response);
+    })
+</script> -->
+
+
+<script>
+    function getDisplayData(input){
+        return new Promise((success,failure)=>{
+              if(input<0){
+                  failure("there is no match");
+              }
+              else{
+                  success("there is a match found");
+              }
+         
+        })
+    }
+    getDisplayData(2).then((response)=>{
+            console.log(response);
+    },(error)=>{
+           console.log(error);
+    })
+</script>

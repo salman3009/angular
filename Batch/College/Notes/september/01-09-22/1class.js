@@ -1,0 +1,17 @@
+var Employee = /** @class */ (function () {
+    function Employee(registerUserName, registerAge) {
+        this.firstName = registerUserName;
+        this.age = registerAge;
+    }
+    Employee.prototype.getDisplayAge = function () {
+        return this.age;
+    };
+    Employee.prototype.displayAmount = function () {
+        return 5000;
+    };
+    return Employee;
+}());
+var akashObj = new Employee("akash", 44);
+console.log(akashObj.firstName);
+// console.log(akashObj.age);
+console.log(akashObj.displayAmount());

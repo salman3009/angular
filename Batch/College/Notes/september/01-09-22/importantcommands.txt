@@ -1,0 +1,9 @@
+To install the angular package:
+cmd: npm install -g @angular/cli@13
+
+To check the version
+cmd:ng --version 
+
+To create new project 
+cmd:ng new college-expense-tracker
+
